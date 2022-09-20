@@ -1,0 +1,250 @@
+[
+    {
+      "value": "1",
+      "faturamento": "R$ 0,00 a R$ 15.000,00"
+    },
+    {
+      "value": "2",
+      "faturamento": "R$ 15.000,01 a R$ 30.000,00"
+    },
+    {
+      "value": "3",
+      "faturamento": "R$ 30.000,01 a R$ 60.000,0"
+    },
+    {
+      "value": "4",
+      "faturamento": "R$ 60.000,01 a R$ 90.000,00"
+    },
+    {
+      "value": "5",
+      "faturamento": "R$ 90.000,01 a R$ 120.000,00"
+    },
+    {
+      "value": "6",
+      "faturamento": "R$ 12.000,01 a R$ 150.000,00"
+    },
+    {
+      "value": "7",
+      "faturamento": "R$ 150.000,01 a R$ 180.000,00"
+    },
+    {
+      "value": "8",
+      "faturamento": "R$ 180.000,01 a R$ 210.000,00"
+    },
+    {
+      "value": "9",
+      "faturamento": "R$ 210.000,01 a R$ 240.000,00"
+    },
+    {
+      "value": "10",
+      "faturamento": "R$ 240.000,01 a R$ 270.000,00"
+    },
+    {
+      "value": "11",
+      "faturamento": "R$ 270.000,01 a R$ 300.000,00"
+    },
+    {
+      "value": "12",
+      "faturamento": "R$ 300.000,01 a R$ 330.000,00"
+    },
+    {
+      "value": "13",
+      "faturamento": "R$ 330.000,01 a R$ 360.000,00"
+    },
+    {
+      "value": "14",
+      "faturamento": "R$ 360.000,01 a R$ 390.000,00"
+    },
+    {
+      "value": "15",
+      "faturamento": "R$ 390.000,01 a R$ 420.000,00"
+    },
+    {
+      "value": "16",
+      "faturamento": "R$ 420.000,01 a R$ 450.000,00"
+    },
+    {
+      "value": "17",
+      "faturamento": "R$ 450.000,01 a R$ 480.000,00"
+    },
+    {
+      "value": "18",
+      "faturamento": "R$ 480.000,01 a R$ 510.000,00"
+    },
+    {
+      "value": "19",
+      "faturamento": "R$ 510.000,01 a R$ 540.000,00"
+    },
+    {
+      "value": "20",
+      "faturamento": "R$ 540.000,01 a R$ 570.000,00"
+    },
+    {
+      "value": "21",
+      "faturamento": "R$ 570.000,01 a R$ 600.000,00"
+    },
+    {
+      "value": "22",
+      "faturamento": "R$ 600.000,01 a R$ 630.000,00"
+    },
+    {
+      "value": "23",
+      "faturamento": "R$ 630.000,01 a R$ 660.000,00"
+    },
+    {
+      "value": "24",
+      "faturamento": "R$ 660.000,01 a R$ 690.000,00"
+    },
+    {
+      "value": "25",
+      "faturamento": "R$ 690.000,01 a R$ 720.000,00"
+    },
+    {
+      "value": "26",
+      "faturamento": "R$ 720.000,01 a R$ 750.000,00"
+    },
+    {
+      "value": "27",
+      "faturamento": "R$ 750.000,01 a R$ 780.000,00"
+    },
+    {
+      "value": "28",
+      "faturamento": "R$ 780.000,01 a R$ 810.000,00"
+    },
+    {
+      "value": "29",
+      "faturamento": "R$ 810.000,01 a R$ 840.000,00"
+    },
+    {
+      "value": "30",
+      "faturamento": "R$ 840.000,01 a R$ 870.000,00"
+    },
+    {
+      "value": "31",
+      "faturamento": "R$ 870.000,01 a R$ 900.000,00"
+    },
+    {
+      "value": "32",
+      "faturamento": "R$ 900.000,01 a R$ 930.000,00"
+    },
+    {
+      "value": "33",
+      "faturamento": "R$ 930.000,01 a R$ 960.000,00"
+    },
+    {
+      "value": "34",
+      "faturamento": "R$ 960.000,01 a R$ 990.000,00"
+    },
+    {
+      "value": "35",
+      "faturamento": "R$ 990.000,01 a R$ 1020.000,00"
+    },
+    {
+      "value": "36",
+      "faturamento": "R$ 1020.000,01 a R$ 1050.000,00"
+    },
+    {
+      "value": "37",
+      "faturamento": "R$ 1050.000,01 a R$ 1080.000,00"
+    },
+    {
+      "value": "38",
+      "faturamento": "R$ 1080.000,01 a R$ 1110.000,00"
+    },
+    {
+      "value": "39",
+      "faturamento": "R$ 1110.000,01 a R$ 1140.000,00"
+    },
+    {
+      "value": "40",
+      "faturamento": "R$ 1140.000,01 a R$ 1170.000,00"
+    },
+    {
+      "value": "41",
+      "faturamento": "R$ 1170.000,01 a R$ 1200.000,00"
+    },
+    {
+      "value": "42",
+      "faturamento": "R$ 1200.000,01 a R$ 1230.000,00"
+    },
+    {
+      "value": "43",
+      "faturamento": "R$ 1230.000,01 a R$ 1260.000,00"
+    },
+    {
+      "value": "44",
+      "faturamento": "R$ 1260.000,01 a R$ 1290.000,00"
+    },
+    {
+      "value": "45",
+      "faturamento": "R$ 1290.000,01 a R$ 1320.000,00"
+    },
+    {
+      "value": "46",
+      "faturamento": "R$ 1320.000,01 a R$ 1350.000,00"
+    },
+    {
+      "value": "47",
+      "faturamento": "R$ 1350.000,01 a R$ 1380.000,00"
+    },
+    {
+      "value": "48",
+      "faturamento": "R$ 1380.000,01 a R$ 1410.000,00"
+    },
+    {
+      "value": "49",
+      "faturamento": "R$ 1410.000,01 a R$ 1440.000,00"
+    },
+    {
+      "value": "50",
+      "faturamento": "R$ 1440.000,01 a R$ 1470.000,00"
+    },
+    {
+      "value": "51",
+      "faturamento": "R$ 1470.000,01 a R$ 1500.000,00"
+    },
+    {
+      "value": "52",
+      "faturamento": "R$ 1500.000,01 a R$ 1530.000,00"
+    },
+    {
+      "value": "53",
+      "faturamento": "R$ 1530.000,01 a R$ 1560.000,00"
+    },
+    {
+      "value": "53",
+      "faturamento": "R$ 1560.000,01 a R$ 1590.000,00"
+    },
+    {
+      "value": "54",
+      "faturamento": "R$ 1590.000,01 a R$ 1620.000,00"
+    },
+    {
+      "value": "55",
+      "faturamento": "R$ 1620.000,01 a R$ 1650.000,00"
+    },
+    {
+      "value": "56",
+      "faturamento": "R$ 1650.000,01 a R$ 1680.000,00"
+    },
+    {
+      "value": "57",
+      "faturamento": "R$ 1680.000,01 a R$ 1710.000,00"
+    },
+    {
+      "value": "58",
+      "faturamento": "R$ 1710.000,01 a R$ 1740.000,00"
+    },
+    {
+      "value": "58",
+      "faturamento": "R$ 1740.000,01 a R$ 1770.000,00"
+    },
+    {
+      "value": "59",
+      "faturamento": "R$ 1770.000,01 a R$ 1800.000,00"
+    },
+    {
+      "value": "59",
+      "faturamento": "R$ 1800.000,01 a R$ 1830.000,00"
+    }
+]

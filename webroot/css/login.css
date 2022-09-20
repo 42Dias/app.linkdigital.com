@@ -1,0 +1,376 @@
+
+body, html {
+    background-color: #323232 !important;
+}
+
+/* Acessar conta */
+.area-login {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    background-image: url(../img/bg-login.jpg);
+    background-color: #26272f;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+}
+
+.area-login .content {
+    width: 100%;
+    height: auto;
+    min-height: 530px;
+    padding: 0px 50px;
+    margin-right: 0px;
+    margin-left: 0px;
+        /* background-color: #fff; */
+}
+
+.area-login .column {
+    padding-right: 0px;
+    padding-left: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.area-login .login-banner {
+    margin-top: 40px;
+}
+
+.area-login .login-banner .logo:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.area-login .login-banner .logo:hover {
+    opacity: .6;
+}
+
+.area-login .login-banner .box-text {
+    /* width: 60%; */
+    padding: 60px;
+    text-align: left;
+    position: absolute;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0px;
+    right: 0px;
+}
+
+.area-login .login-banner .title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    /* margin: 0 auto; */
+    line-height: 24px;
+    width: 310px;
+}
+
+.area-login .login-banner .bar-title-login {
+    border-radius: 50px;
+    width: 120px;
+    height: 5px;
+    background-color: #a3d30c;
+    margin-bottom: 15px;
+}
+
+.area-login .login-banner .sub-title {
+    color: rgba(255, 255, 255, 0.61);
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 22px;
+    font-size: 14px;
+    display: block;
+}
+
+.area-login .login-content {
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.area-login .login-content .box-login {
+    padding: 60px;
+}
+
+.area-login .login-content .title {
+    display: block;
+    color: #323232;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.area-login .login-content .sub-title {
+    display: block;
+    color: #323232;
+    font-size: 14px;
+}
+
+.area-login .login-content .label {
+    color: #434343;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.area-login .login-content .input-password {
+    padding: 12px;
+    text-align: left;
+    border: none;
+    min-height: 50px;
+    border-bottom: 2px solid #e6e6e6;
+    color: #a8a8bb;
+    border-radius: 0px;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.area-login .login-content .input-password.active {
+    padding: 8px;
+    color: #8a6bff;
+    border-bottom: 2px solid #8a6bff;
+    font-size: 20px;
+}
+
+.area-login .login-content .box-number {
+    float: left;
+    margin: 5px;
+    margin-top: 10px;
+    color: #8b8ba9;
+    min-width: 100px;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 20px 25px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.area-login .login-content .box-number:hover {
+    box-shadow: 0px 0px 20px rgba(0,0,0,.1);
+    border: 1px solid #8a6bff;
+    color: #8a6bff;
+}
+
+.area-login .login-content .box-number:active {
+    transform: scale(.9);
+}
+
+/* Card User */
+.area-login .login-content .card-user .box-user {
+    display: block;
+    position: relative;
+    background-color: #fff;
+    /* border: 1px solid rgba(204, 204, 222, 1); */
+    width: 100%;
+    border-radius: 8px;
+    padding: 20px 0px;
+    text-align: left;
+    padding-left: 70px;
+    margin-top: 0px;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.area-login .login-content .card-user .image {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 100%;
+    left: 15px;
+    top: 21px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.area-login .login-content .card-user .box-user {
+    text-decoration: none;
+}
+
+.area-login .login-content .card-user .name {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #8b8ba9;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.area-login .login-content .card-user .email {
+    display: block;
+    color: #3d3d3d;
+    opacity: .5;
+    width: 175px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.area-login .login-content .card-user .icon {
+    position: absolute;
+    z-index: 1;
+    width: 30px;
+    text-align: center;
+    top: 5px;
+    right: 20px;
+    font-size: 50px;
+    color: #c8c8c8;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.area-login .login-content .card-user .icon:hover,
+.area-login .login-content .card-user .icon:focus,
+.area-login .login-content .card-user .icon:active {
+    color: #545765;
+}
+
+.area-login .login-content .card-user .icon-change {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 40px;
+    color: rgba(139, 139, 169, 0.39);
+}
+
+.area-login .login-content .card-user .box-user.active {
+    padding: 15px 25px;
+    text-align: center;
+    background-color: #e0e0e0;
+    border: 1px solid #fff;
+}
+
+.area-login .login-content .card-user .box-user.active .name {
+    color: #323232;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.area-login .login-content .card-user .box-user:hover {
+    background-color: #f1f1f1;
+    /* box-shadow: 0px 10px 20px rgba(0,0,0,.05); */
+    /* transform: scale(1.02); */
+}
+
+.area-login .login-content .card-user .box-user:focus {
+    transform: scale(.95);
+}
+
+.area-login .login-content .card-user .box-user.active:hover {
+    background-color: #a3d30c;
+    border: 1px solid #fff;
+    box-shadow: none;
+    color: #fff;
+    /* transform: scale(1.1); */
+}
+
+.area-login .login-content .card-user .box-user:hover .name {
+    color: #545765;
+}
+
+.area-login .login-content .card-user .box-user.active:hover .name {
+    color: #545765;
+}
+
+.area-login .login-content .card-user .box-user:hover .email,
+.area-login .login-content .card-user .box-user.active:hover .email {
+    /*color: #fff;*/
+}
+
+/* .btn-float-whats */
+.btn-float-whats {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9;
+    width: 50px;
+    height: 50px;
+    background-color: #00e676;
+    padding: 12px;
+    color: #fff;
+    border-radius: 70px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.btn-float-whats:hover, .btn-float-whats:focus, .btn-float-whats:active {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Size Devices */
+
+/* max */
+@media (max-width: 1920px) {
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    .visible-lg {
+        display: block;
+    }
+
+}
+
+@media (max-width: 1199px) {
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    .visible-lg {
+        display: block;
+    }
+
+}
+
+
+@media (max-width: 991px) {
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    .visible-md {
+        display: block;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    .visible-xs {
+        display: block;
+    }
+
+    .area-login .content {
+        padding: 0px 10px;
+    }
+
+    .area-login .login-content .box-login {
+        padding: 60px 40px;
+    }
+
+}
