@@ -2689,10 +2689,9 @@ class ClientController extends AppController
             if(!empty($_FILES['document_file'])){
 
                 // Upload document
-                $uploaddir = '../webroot/uploads/documents/';
+                $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
                 $ext = explode(".", $_FILES['document_file']['name']);
                 $ext = end($ext);
-
                 $url_document = $business_active."_".$query_notes->id.".".$ext;
 
                 $uploadfile = $uploaddir.($url_document);
@@ -2757,7 +2756,7 @@ class ClientController extends AppController
             if(!empty($_FILES['document_file'])){
 
                 // Upload document
-                $uploaddir = '../webroot/uploads/documents/';
+                $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
                 $ext = explode(".", $_FILES['document_file']['name']);
                 $ext = end($ext);
 
@@ -2839,7 +2838,7 @@ class ClientController extends AppController
             }
 
             // $email = new Email();
-            $email->ViewVars(['name' => $name_user]);
+            $email->ViewVars(['name' => $name_user or ""]);
             $email->ViewVars(['email' => $email_user]);
             $email->ViewVars(['message' => $assunto]);
             $email->ViewVars(['date' => $date_now]);
@@ -3168,7 +3167,7 @@ class ClientController extends AppController
                 if(!empty($arquivo['name'][$i])){
 
                     // Upload document
-                    $uploaddir = '../webroot/uploads/notes/';
+                    $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/notes/';
                     $ext = explode(".", $arquivo['name'][$i]);
                     $ext = end($ext);
 
@@ -3258,7 +3257,7 @@ class ClientController extends AppController
                 $title = $note->title;
                 if($note->url !== "" && $note->url !== NULL){
                     // Delete file
-                    unlink('../webroot/uploads/notes/'.$note->url);
+                    unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/notes/'.$note->url);
                 }
             }
 
@@ -3340,7 +3339,7 @@ class ClientController extends AppController
             if(!empty($_FILES['file_extract']['name'])){
 
                 // Upload document
-                $uploaddir = '../webroot/uploads/extracts/';
+                $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/extracts/';
                 $ext = explode(".", $_FILES['file_extract']['name']);
                 $ext = end($ext);
 
@@ -3428,7 +3427,7 @@ class ClientController extends AppController
                 $bank = $extract->bank;
                 if($extract->url !== "" && $extract->url !== NULL){
                     // Delete file
-                    unlink('../webroot/uploads/extracts/'.$extract->url);
+                    unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/extracts/'.$extract->url);
                 }
             }
 
@@ -3513,7 +3512,7 @@ class ClientController extends AppController
                    if(!empty($_FILES['file-document-'.$i]['name'])){
 
                         // Upload document
-                        $uploaddir = '../webroot/uploads/documents/';
+                        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
                         $ext = explode(".", $_FILES['file-document-'.$i]['name']);
                         $ext = end($ext);
 
@@ -3595,12 +3594,9 @@ class ClientController extends AppController
     public function documentsAddAction()
     {
         if ($this->request->is('post')) {
-
             $date_now = Time::now();
-
             $document_id_select = $this->request->data['document_id'];
 
-            // Buscar registros
             $query = TableRegistry::get('AccessBusiness');
             $query_access = $query
                     ->find()
@@ -3612,17 +3608,19 @@ class ClientController extends AppController
                 $business_active = $access->business_id;
             }
 
+
             if(!empty($_FILES['file-document-action-'.$document_id_select]['name'])){
 
                 // Upload document
-                $uploaddir = '../webroot/uploads/documents/';
+                $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
                 $ext = explode(".", $_FILES['file-document-action-'.$document_id_select]['name']);
+
                 $ext = end($ext);
 
+                // criou um arquivo temporário, criou o nome do arquivo corretamente, mas no momento em que move-se o arquivo ele gera erro. Cria a url do documento baseado em sua função dentro do sistema
                 $url_document = $business_active."_".$this->request->data['type']."_".$document_id_select.".".$ext;
-
                 $uploadfile = $uploaddir.($url_document);
-                move_uploaded_file($_FILES['file-document-action-'.$document_id_select]['tmp_name'], $uploadfile);
+                $is_moved = move_uploaded_file($_FILES['file-document-action-'.$document_id_select]['tmp_name'], $uploadfile);
             }
 
             // Cria nova Quotations
@@ -3719,7 +3717,7 @@ class ClientController extends AppController
                 ]);
 
             foreach ($query_documents as $document) {
-                unlink('../webroot/uploads/documents/'.$document->url);
+                unlink($_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/'.$document->url);
             }
 
             // Atualiza Quotation
@@ -3829,7 +3827,7 @@ class ClientController extends AppController
 
                 if($document->url !== "" && $document->url !== NULL){
                     // Delete file
-                    unlink('../webroot/uploads/documents/'.$document->url);
+                    unlink($_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/'.$document->url);
                 }
             }
 
