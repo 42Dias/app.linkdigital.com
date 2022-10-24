@@ -829,6 +829,15 @@ class CustomController extends AppController
              $payments->maturity = $date_maturity;
              $payments->value = $value;
              $payments->created = $date_now;
+             $payments->updated = $date_now;
+
+             // Missing Values  
+             $payments->fees = $this->request->data['payment_juros'];
+             $payments->fine = $this->request->data['payment_multa'];
+             $payments->recurrent = $this->request->data['payment_recurrent'];
+             $payments->division = $this->request->data['payment_division'];
+             $payments->status = 0;
+
              $query->save($payments);
  
              $result = array(
@@ -900,7 +909,10 @@ class CustomController extends AppController
              $receipts->title = $this->request->data['receipt_title'];
              $receipts->maturity = $date_maturity;
              $receipts->value = $value;
+             $receipts->status = 0;
              $receipts->created = $date_now;
+             $receipts->updated = $date_now;
+
              $query->save($receipts);
  
              $result = array(
@@ -971,7 +983,7 @@ class CustomController extends AppController
             if(!empty($_FILES['file_upload']['name'])){
 
                 // Upload document
-                $uploaddir = '../webroot/uploads/files/';
+                $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/files/';
                 $ext = explode(".", $_FILES['file_upload']['name']);
                 $ext = end($ext);
 
@@ -1094,7 +1106,7 @@ class CustomController extends AppController
              $nf->description = $this->request->data['nf_description'];
              $nf->maturity = $date_maturity;
              $nf->amount = $value;
-            //  $nf-plug_idIntegracao = 
+             $nf->plug_idIntegracao = "";
             //  $nf-plug_prestador = 
             //  $nf-plug_id = 
             //  $nf-plug_protocol = 
@@ -1334,7 +1346,7 @@ class CustomController extends AppController
                 ]);
 
             foreach ($query_documents as $document) {
-                unlink('../webroot/uploads/files/'.$document->url);
+                unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/files/'.$document->url);
             }
 
             // Atualiza Quotation
