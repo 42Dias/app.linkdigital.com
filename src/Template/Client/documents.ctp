@@ -132,7 +132,7 @@
                 <!-- <div class="box-file client btn-open-documents" data-id="<?= $documents->id; ?>">
                     <i class="material-icons-outlined">folder</i>
                     <span class="date"><?= date_format($documents->date, 'd/m/Y'); ?></span>
-                    <span class="title"><?= $documents->title; ?></span>
+                    <span class="title"><?= strval($documents->title); ?></span>
                 </div> -->
 
                 <div class="box-file client btn-open-documents" data-id="<?= $documents->id; ?>" style="padding-left: 30px;">
@@ -140,7 +140,7 @@
                     
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">
-                            <span class="date"><?php echo $documents->title; ?></span>
+                            <span class="date"><?php echo strval($documents->title); ?></span>
                         </div>
 
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">

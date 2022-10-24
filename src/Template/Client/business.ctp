@@ -404,7 +404,7 @@
                 ?>
                             <div class="box-document-action <?php echo $document_send_status; ?>">
                                 <span class="check"></span>
-                                <span class="name"><?php echo $doc->title; ?></span>
+                                <span class="name"><?php echo strval($doc->title); ?></span>
 
                                 <?php if($document_send_status == 'send'){ ?>
                                     <span class="name send">Documento enviado</span>
@@ -451,7 +451,7 @@
                 ?>
                             <div class="box-document-action <?php echo $document_send_status; ?>">
                                 <span class="check"></span>
-                                <span class="name"><?php echo $doc->title; ?></span>
+                                <span class="name"><?php echo strval($doc->title); ?></span>
 
                                 <?php if($document_send_status == 'send'){ ?>
                                     <span class="name send">Documento enviado</span>
@@ -509,7 +509,7 @@
                 <?php
                     foreach ($all_history as $history) {
                         echo '<span class="title" style="font-size: 12px;">'.date_format($history->created, 'd/m/Y').' às '.date_format($history->created, 'H:m').'</span>';
-                        echo '<span class="title" style="font-size: 14px; color: #394556;">'.$history->title.'</span><br>';
+                        echo '<span class="title" style="font-size: 14px; color: #394556;">'. strval($history->title).'</span><br>';
                     }                
                 ?>
                 

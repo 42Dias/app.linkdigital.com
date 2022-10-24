@@ -57,7 +57,7 @@
 
                     <div class="text-left margin-t-20 item-tasks-fixed" id="item-tasks-fixed-<?= $task->id; ?>" style="display: none;">
 
-                        <h3 style="font-weight: 500; color: #333;"><?= $task->title; ?></h3>
+                        <h3 style="font-weight: 500; color: #333;"><?= strval($task->title); ?></h3>
                         <p style="font-weight: 500; color: #666; margin-top: 10px;"><?= $task->description; ?></p>
 
                         <div class="row margin-t-30">

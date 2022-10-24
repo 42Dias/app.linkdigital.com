@@ -140,7 +140,7 @@
 
                             echo "{\n";
                             echo "id: '".$task->id."',\n";
-                            echo "title: '".$document_business." - ".$task->title."',\n";
+                            echo "title: '".$document_business." - ".strval($task->title)."',\n";
                             echo "classNames: '".$status_task."',\n";
                             echo "start: '".$year_maturity."-".$month_maturity."-".$day_maturity."',\n";
                             echo "extendedProps: {\n";
@@ -195,7 +195,7 @@
 
                                         echo "{\n";
                                         echo "id: '".$task->id."',\n";
-                                        echo "title: '".$document_business." - ".$task->title."',\n";
+                                        echo "title: '".$document_business." - ".strval($task->title)."',\n";
                                         echo "classNames: '".$status_task."',\n";
                                         echo "start: '".$year_active."-".$month_active."-".$day_active."',\n";
                                         echo "extendedProps: {\n";
@@ -260,7 +260,7 @@
 
                                         echo "{\n";
                                         echo "id: '".$task->id."',\n";
-                                        echo "title: '".$document_business." - ".$task->title."',\n";
+                                        echo "title: '".$document_business." - ".strval($task->title)."',\n";
                                         echo "classNames: '".$status_task."',\n";
                                         echo "start: '".$year_active."-".$month_active."-".$day_active."',\n";
                                         echo "extendedProps: {\n";
@@ -344,7 +344,7 @@
 
                                         echo "{\n";
                                         echo "id: '".$task->id."',\n";
-                                        echo "title: '".$document_business." - ".$task->title."',\n";
+                                        echo "title: '".$document_business." - ".strval($task->title)."',\n";
                                         echo "classNames: '".$status_task."',\n";
                                         echo "start: '".$year_active."-".$month_active."-".$day_active."',\n";
                                         echo "extendedProps: {\n";
@@ -405,7 +405,7 @@
 
                             echo "{\n";
                             echo "id: '".$task->id."',\n";
-                            echo "title: '".$document_business." - ".$task->title."',\n";
+                            echo "title: '".$document_business." - ".strval($task->title)."',\n";
                             echo "classNames: '".$status_task."',\n";
                             echo "start: '".$year_maturity."-".$month_maturity."-".$day_maturity."',\n";
                             echo "extendedProps: {\n";

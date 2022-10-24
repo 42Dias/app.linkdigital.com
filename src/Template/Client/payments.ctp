@@ -10,7 +10,7 @@
         <span style="color: #999; font-size: 14px;">
             O acesso será liberado assim que for compensado o pagamento da adesão.
             <br>
-            Caso queira efetuar o pagamento agora, clique no botõ abaixo.
+            Caso queira efetuar o pagamento agora, clique no botão abaixo.
         </span>
     </div>
     

@@ -136,7 +136,7 @@
                     
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">
-                            <span class="date"><?php echo $taxes->title; ?></span>
+                            <span class="date"><?php echo strval($taxes->title); ?></span>
                         </div>
 
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">

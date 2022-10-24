@@ -13,7 +13,7 @@
 
                     <div class="text-left item-documents" id="item-documents-<?= $documents->id; ?>" style="display: none;">
 
-                        <h3 style="font-weight: 500; color: #666; margin-top: 10px;"><?= $documents->title; ?></h3>
+                        <h3 style="font-weight: 500; color: #666; margin-top: 10px;"><?= strval($documents->title); ?></h3>
                         <br>
 
                         <div class="row">

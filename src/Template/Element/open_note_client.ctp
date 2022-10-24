@@ -14,7 +14,7 @@
 
                     <div class="text-left item-notes" id="item-notes-<?= $notes->id; ?>" style="display: none;">
 
-                        <h3 style="font-weight: 500; color: #666; margin-top: 10px;"><?= $notes->title; ?></h3>
+                        <h3 style="font-weight: 500; color: #666; margin-top: 10px;"><?= strval($notes->title); ?></h3>
                         <p style="font-weight: 500; color: #666; margin-top: 10px;"><?= $notes->description; ?></p>
                         <br>
 

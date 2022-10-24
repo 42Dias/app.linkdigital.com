@@ -329,7 +329,7 @@
                                     </div>
 
                                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
-                                        <strong style="color: #333; font-size: 12px;"><?php echo $release->title; ?></strong>
+                                        <strong style="color: #333; font-size: 12px;"><?php echo strval($release->title); ?></strong>
                                     </div>
 
                                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">

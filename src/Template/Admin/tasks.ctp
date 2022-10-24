@@ -93,7 +93,7 @@
 
                 echo "{\n";
                 echo "id: '".$task->id."',\n";
-                echo "title: '".$name_business[$task->id]." - ".$task->title."',\n";
+                echo "title: '".$name_business[$task->id]." - ". strval($task->title)."',\n";
                 echo "classNames: '".$status_task."',\n";
                 echo "start: '".date_format($task->maturity, 'Y-m-d')."',\n";
                 echo "},"."\n";

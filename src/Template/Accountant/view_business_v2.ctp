@@ -801,7 +801,7 @@
 
                 <div class="row margin-t-20" style="padding: 0px 10px; position: relative;">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">
-                        <strong style="color: #333; font-size: 12px;"><?php echo $receipt->title; ?></strong>
+                        <strong style="color: #333; font-size: 12px;"><?php echo strval($receipt->title); ?></strong>
                     </div>
 
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">
@@ -894,7 +894,7 @@
                     </div>
 
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">
-                        <strong style="color: #333; font-size: 12px;"><?php echo $release->title; ?></strong>
+                        <strong style="color: #333; font-size: 12px;"><?php echo strval($release->title); ?></strong>
                     </div>
 
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 animate-scroll">

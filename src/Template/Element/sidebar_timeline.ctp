@@ -25,7 +25,7 @@
 
 
             <span class="date"><?php echo '<strong style="color: '.$color_user.';">'.$infos_user_activity[$activity->id]["name"].'</strong> - '.date_format($activity->created, 'd/m/Y'); ?></span>
-            <span class="title"><?= $activity->title; ?></span>
+            <span class="title"><?= strval($activity->title); ?></span>
         </div>
 
     <?php } ?>

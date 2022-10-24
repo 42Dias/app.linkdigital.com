@@ -69,7 +69,7 @@
 
                                 <div data-toggle="modal" data-target="#add_customer" class="box-client-item" style="cursor: pointer; text-align: center; background-color: #ffcf31; border: #ffcf31; margin-bottom: 20px;">
                                     <strong style="color: #333; font-size: 12px;">
-                                        NOVO CLIENTE
+                                        NOVO CLIENTE 
                                     </strong>
                                 </div>
 
@@ -217,7 +217,7 @@
                                             
                                             <div class="row">
                                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 animate-scroll">
-                                                    <span class="title"><?php echo $receipt->title; ?></span>
+                                                    <span class="title"><?php echo strval($receipt->title); ?></span>
                                                 </div>
 
                                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 animate-scroll">

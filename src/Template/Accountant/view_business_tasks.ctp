@@ -156,7 +156,7 @@
 
                     echo "{\n";
                     echo "id: '".$task->id."',\n";
-                    echo "title: '".$task->title."',\n";
+                    echo "title: '". strval($task->title)."',\n";
                     echo "classNames: '".$status_task."',\n";
                     echo "start: '".$year_maturity."-".$month_maturity."-".$day_maturity."',\n";
                     echo "extendedProps: {\n";

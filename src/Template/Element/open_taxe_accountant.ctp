@@ -37,7 +37,7 @@
                             <span style="display: inline-block; vertical-align: top; line-height: 25px;"><?= $status_active; ?></span>
                         </div>
 
-                        <h3 style="font-weight: 500; color: #333; margin-top: 10px;"><?= $taxes->title; ?></h3>
+                        <h3 style="font-weight: 500; color: #333; margin-top: 10px;"><?= strval($taxes->title); ?></h3>
                         <p style="font-weight: 500; color: #666; margin-top: 10px;"><?= $taxes->description; ?></p>
                         <br>
 

@@ -104,7 +104,7 @@
 
                 echo "{\n";
                 echo "id: '".$task->id."',\n";
-                echo "title: '".$task->title."',\n";
+                echo "title: '". strval($task->title)."',\n";
                 echo "classNames: '".$status_task."',\n";
                 echo "start: '".date_format($task->maturity, 'Y-m-d')."',\n";
                 echo "},"."\n";
@@ -507,7 +507,7 @@
                 <div class="box-file client <?= $status_active; ?> btn-open-taxe" data-id="<?= $taxe->id; ?>">
                     <i class="material-icons-outlined"><?= $status_icon; ?></i>
                     <span class="date"><?= date_format($taxe->maturity, 'd/m/Y'); ?></span>
-                    <span class="title"><?= $taxe->title; ?></span>
+                    <span class="title"><?= strval($taxe->title); ?></span>
                 </div>
 
             <?php } ?>
@@ -593,7 +593,7 @@
                 <div class="box-file client btn-open-note" data-id="<?= $note->id; ?>">
                     <i class="material-icons-outlined">book</i>
                     <span class="date"><?= date_format($note->date, 'd/m/Y'); ?></span>
-                    <span class="title"><?= $note->title; ?></span>
+                    <span class="title"><?= strval($note->title); ?></span>
                 </div>
 
             <?php } ?>
@@ -788,7 +788,7 @@
                 <div class="box-file client btn-open-document" data-id="<?= $document->id; ?>">
                     <i class="material-icons-outlined">folder</i>
                     <span class="date"><?= date_format($document->date, 'd/m/Y'); ?></span>
-                    <span class="title"><?= $document->title; ?></span>
+                    <span class="title"><?= strval($document->title); ?></span>
                 </div>
 
             <?php } ?>
@@ -1609,7 +1609,7 @@
 
             <span class="date"><?php echo '<strong style="color: '.$color_user.';">'.$infos_user_activity[$activity->id]["name"].'</strong> - '.date_format($activity->created, 'd/m/Y'); ?></span>
             <span class="title"><?= $activity->type; ?></span>
-            <span class="title"><?= $activity->title; ?></span>
+            <span class="title"><?= strval($activity->title); ?></span>
         </a>
 
     <?php } ?>

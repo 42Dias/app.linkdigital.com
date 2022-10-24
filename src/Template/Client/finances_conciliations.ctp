@@ -106,7 +106,7 @@
                             </div>
 
                             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
-                                <strong style="color: #333; font-size: 12px;"><?php echo $conciliation->title; ?></strong>
+                                <strong style="color: #333; font-size: 12px;"><?php echo strval($conciliation->title); ?></strong>
                             </div>
 
                             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
