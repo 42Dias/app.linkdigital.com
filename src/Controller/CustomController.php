@@ -553,17 +553,17 @@ class CustomController extends AppController
 
              if($this->request->data['payment_type'] == "provider"){
                 $type = 'provider';
-                $type_id = $this->request->data['payment_provider'];
+                $type_id = $this->request->data['payment_provider'] or $this->request->data['receipt_customer'] ;
              }
 
              if($this->request->data['payment_type'] == "employee"){
                 $type = 'employee';
-                $type_id = $this->request->data['payment_employee'];
+                $type_id = $this->request->data['payment_employee'] or $this->request->data['receipt_customer'] ;
              }
 
              if($this->request->data['payment_type'] == "partner"){
                 $type = 'partner';
-                $type_id = $this->request->data['payment_partner'];
+                $type_id = $this->request->data['payment_partner'] or $this->request->data['receipt_customer'] ;
              }
 
              if($this->request->data['payment_type'] == "none"){
@@ -646,17 +646,17 @@ class CustomController extends AppController
 
              if($this->request->data['receipt_type'] == "provider"){
                 $type = 'provider';
-                $type_id = $this->request->data['receipt_provider'];
+                $type_id = $this->request->data['receipt_provider'] or $this->request->data['receipt_customer'];
              }
 
              if($this->request->data['receipt_type'] == "employee"){
                 $type = 'employee';
-                $type_id = $this->request->data['receipt_employee'];
+                $type_id = $this->request->data['receipt_employee'] or $this->request->data['receipt_customer'];
              }
 
              if($this->request->data['receipt_type'] == "partner"){
                 $type = 'partner';
-                $type_id = $this->request->data['receipt_partner'];
+                $type_id = $this->request->data['receipt_partner'] or $this->request->data['receipt_customer'];
              }
 
              if($this->request->data['receipt_type'] == "none"){
@@ -816,6 +816,12 @@ class CustomController extends AppController
                 $type = 'none';
                 $type_id = 0;
              }
+
+             error_log(
+                print_r(
+                    $this->request->data, true
+                )
+                );
 
              // Cria nova Quotations
              $query = TableRegistry::get('FinancesPayments');
