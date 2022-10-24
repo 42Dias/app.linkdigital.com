@@ -3,7 +3,7 @@
 
     echo $this->element('add_payment');
     echo $this->element('update_payment');
-
+    $test = '';
     $month_format_date['01'] = "Janeiro";
     $month_format_date['02'] = "Fevereiro";
     $month_format_date['03'] = "Março";
@@ -176,7 +176,7 @@
 
                             <div class="row margin-t-20" style="padding: 0px 10px; position: relative;">
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
-                                    <strong style="color: #333; font-size: 12px;"><?php echo $payment->title; ?></strong>
+                                    <strong style="color: #333; font-size: 12px;"><?php echo strval($payment->title); ?></strong>
                                 </div>
 
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
@@ -268,11 +268,30 @@
 
                                     <div style="position: absolute; right: 0px; top: 0px;">
 
-                                        <i class="material-icons-outlined btn-open-payment" style="cursor: pointer;"  data-tool="tooltip" data-placement="top" title="Editar"  data-toggle="modal" data-target="#update_payment" 
-                                            data-id="<?= $payment->id; ?>" data-title="<?= $payment->title; ?>" data-value="<?= $payment->value; ?>"  data-status="<?= $payment->status; ?>"
-                                            data-account="<?= $payment->account_id; ?>"  data-category="<?= $payment->category_id; ?>" data-type="<?= $payment->type; ?>" 
-                                            data-division="<?= $payment->division; ?>" data-maturity="<?= $date; ?>" data-recurrent="<?= $payment->recurrent; ?>"
+                                        <i class="material-icons-outlined btn-open-payment"
+                                            style="cursor: pointer;"
+                                            data-tool="tooltip"
+                                            data-placement="top"
+                                            title="Editar"
+                                            data-toggle="modal"
+                                            data-target="#update_payment" 
+                                            data-id="<?= $payment->id; ?>"
+                                            data-title="<?= strval($payment->title); ?>"
+                                            data-value="<?= $payment->value; ?>"
+                                            data-status="<?= $payment->status; ?>"
+                                            data-account="<?= $payment->account_id; ?>"
+                                            data-category="<?= $payment->category_id; ?>"
+                                            data-type="<?= $payment->type; ?>" 
+                                            data-division="<?= $payment->division; ?>"
+                                            data-maturity="<?= $date; ?>"
+                                            data-recurrent="<?= $payment->recurrent; ?>"
                                             data-type_id="<?= $payment->type_id; ?>"
+                                            data-annotation="<?= $payment->annotation; ?>"
+                                            data-file_url="<?= $payment->file_url; ?>"
+                                            data-fees="<?= $payment->fees; ?>"
+                                            data-fine="<?= $payment->fine; ?>"
+                                            data-receipt_customer="<?= $payment->receipt_customer; ?>"
+                                            
                                         >
                                             create
                                         </i>
