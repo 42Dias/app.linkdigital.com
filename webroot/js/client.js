@@ -1155,7 +1155,9 @@ $(document).ready(function() {
         $("#input_update_payment_division").val($(this).data('division'));
         $("#input_update_payment_maturity").val($(this).data('maturity'));
         $("#input_update_payment_recurrent").val($(this).data('recurrent'));
-
+        $("#input_update_payment_fees").val($(this).data('fees'));
+        $("#input_update_payment_fine").val($(this).data('fine'));
+        
         if($(this).data('type') === 'customer'){
             $("#select_update_payment_customer").val($(this).data('type_id'));
         }
@@ -1170,6 +1172,60 @@ $(document).ready(function() {
 
         if($(this).data('type') === 'partner'){
             $("#select_update_payment_partner").val($(this).data('type_id'));
+        }
+
+        if(!$("#select_update_payment_provider").value){
+            $("#select_update_payment_customer").val($(this).data('type_id'));
+        }
+
+
+        if($(this).data('type') == "customer"){
+            $("#text_update_payment_type").css("display", "block");
+            $("#text_update_payment_type").html("Cliente");
+            $("#select_update_payment_customer").css("display", "block");
+
+            $("#select_update_payment_provider").css("display", "none");
+            $("#select_update_payment_employee").css("display", "none");
+            $("#select_update_payment_partner").css("display", "none");
+        }
+
+        if($(this).data('type') == "provider"){
+            $("#text_update_payment_type").css("display", "block");
+            $("#text_update_payment_type").html("Fornecedor");
+            $("#select_update_payment_provider").css("display", "block");
+
+            $("#select_update_payment_customer").css("display", "none");
+            $("#select_update_payment_employee").css("display", "none");
+            $("#select_update_payment_partner").css("display", "none");
+        }
+
+        if($(this).data('type') == "employee"){
+            $("#text_update_payment_type").css("display", "block");
+            $("#text_update_payment_type").html("Funcionário");
+            $("#select_update_payment_employee").css("display", "block");
+
+            $("#select_update_payment_customer").css("display", "none");
+            $("#select_update_payment_provider").css("display", "none");
+            $("#select_update_payment_partner").css("display", "none");
+        }
+
+        if($(this).data('type') == "partner"){
+            $("#text_update_payment_type").css("display", "block");
+            $("#text_update_payment_type").html("Sócio");
+            $("#select_update_payment_partner").css("display", "block");
+
+            $("#select_update_payment_customer").css("display", "none");
+            $("#select_update_payment_provider").css("display", "none");
+            $("#select_update_payment_employee").css("display", "none");
+        }
+
+        if($(this).data('type') == "none"){
+            $("#text_update_payment_type").css("display", "none");
+            $("#text_update_payment_type").html("");
+            $("#select_update_payment_partner").css("display", "none");
+            $("#select_update_payment_customer").css("display", "none");
+            $("#select_update_payment_provider").css("display", "none");
+            $("#select_update_payment_employee").css("display", "none");
         }
     });
 
