@@ -14,7 +14,7 @@ use Cake\Core\Configure;
     <?php foreach ($toolbar->panels as $panel): ?>
     <li class="panel hidden" data-id="<?= $panel->id ?>">
         <span class="panel-button">
-            <?= h($panel->title) ?>
+            <?= h(strval($panel->title)) ?>
         </span>
         <?php if (strlen($panel->summary)): ?>
         <span class="panel-summary">
