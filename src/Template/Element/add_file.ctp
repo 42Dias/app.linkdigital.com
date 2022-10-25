@@ -19,8 +19,8 @@
 
                 <form id="form_add_file">
 
-                    <input type='hidden' name="file_business_id" value="<?= $business_id; ?>" id="file_business_id">
-                    <input type='hidden' name="file_item_id" value="<?= $item_selected_id; ?>" id="file_item_id">
+                    <input type='hidden' name="file_business_id" value="<?= $business_id or " "; ?>" id="file_business_id">
+                    <input type='hidden' name="file_item_id" value="<?= $item_selected_id or " "; ?>" id="file_item_id">
 
                     <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">
                         Faça upload de um arquivo
