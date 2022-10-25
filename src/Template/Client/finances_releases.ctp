@@ -91,15 +91,17 @@
 </div>
 
 <div class="area-actions" style="padding-top: 0px;">
-
+        
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left: 0px;">
 
+        
             <div class="box-white size-lg" style="min-height: 280px;">
                 <span class="title-box">Despesas x Receitas</span>
 
                 <?php
                     $values_lucratividade = '';
+                    $values_balance = '';
                     $values_despesas = '';
                     $values_receitas = '';
 
@@ -108,19 +110,29 @@
                     } 
 
                     for ($i=1; $i < 13; $i++) { 
-                        $values_despesas .= str_replace(',', '.', ($month_despesas[$i] * -1)).','; 
+                        // $values_despesas .= str_replace(',', '.', ($month_despesas[$i] * -1)).','; 
+                        $values_despesas .= str_replace(',', '.', ($month_despesas[$i])).','; 
                     } 
 
                     for ($i=1; $i < 13; $i++) { 
                         $values_receitas .= str_replace(',', '.', $month_receitas[$i]).','; 
                     } 
 
+                    for ($i=1; $i < 13; $i++) { 
+                        $values_balance .= str_replace(',', '.', $month_receitas[$i] + $month_despesas[$i]).','; 
+                    } 
+                    
                 ?>
 
                 <canvas id="myChart1" height="50"></canvas>
 
                 <script>
-                    
+                    console.log(
+                        [<?php echo $values_despesas; ?>],
+                        [<?php echo $values_receitas; ?>],
+                        [<?php echo $values_balance; ?>],
+                    )
+
                     var chart    = document.getElementById('myChart1').getContext('2d'),
                     
                     gradient_green = chart.createLinearGradient(0, 0, 0, 450);
@@ -148,18 +160,29 @@
                                 borderWidth: 1,
                                 borderColor: 'transparent',
                                 data: [<?php echo $values_despesas; ?>],
-                                pointStyle: 'cross'
+                                pointStyle: 'cross',
+                                borderSkipped: false,
                             },
                             {
                                 label: 'Receitas',
                                 backgroundColor: gradient_green,
-                                pointBackgroundColor: '#41d242',
+                                pointBackgroundColor: ' #41d242',
                                 borderWidth: 1,
                                 borderColor: 'transparent',
                                 data: [<?php echo $values_receitas; ?>],
-                                pointStyle: 'cross'
+                                pointStyle: 'cross',
+                                borderSkipped: false,
+                            },
+                            {
+                                label: 'Lucratividade',
+                                data: [<?php echo $values_balance; ?>],
+                                borderColor: "#4db8ff",
+                                backgroundColor: "#82CDFF",
+                                type: 'line',
+                                fill: false,
+                                tension: 0.1
                             }
-                            
+
                         ]
                     };
 
@@ -175,13 +198,15 @@
                                 gridLines: {
                                     color: 'rgba(200, 200, 200, 0.05)',
                                     lineWidth: 1
-                                }
+                                },
+                                stacked: true,
                             }],
                             yAxes: [{
                                 gridLines: {
                                     color: 'rgba(200, 200, 200, 0.08)',
-                                    lineWidth: 1
-                                }
+                                    lineWidth: 1,
+                                },
+                                stacked: true
                             }]
                         },
                         elements: {
@@ -190,8 +215,6 @@
                             }
                         },
                         legend: {
-                            display: false
-                            // position: 'bottom'
                         },
                         point: {
                             backgroundColor: 'white'
@@ -208,7 +231,7 @@
                     };
 
                     var chartInstance = new Chart(chart, {
-                        type: 'line',
+                        type: 'bar',
                         data: data,
                             options: options
                     });
@@ -308,11 +331,12 @@
                                 
                             </div>
 
-                            <?php $old_date = ''; $x=0; foreach ($query_releases as $release) { $x++; ?>
+                            <?php
+                            $old_date = ''; $x=0; foreach ($query_releases as $release) { $x++; ?>
 
                                 <?php 
                                     // if($old_date == ''){
-                                    //     echo '<div class="release-date-item">Dia '.date_format($release->created, 'd').' de '.$month_format_date[date_format($release->created, 'm')].' de '.date_format($release->created, 'Y').'</div>';
+                                    //     echzo '<div class="release-date-item">Dia '.date_format($release->created, 'd').' de '.$month_format_date[date_format($release->created, 'm')].' de '.date_format($release->created, 'Y').'</div>';
                                     //     $old_date = $release->created;
                                     // }else{
 
