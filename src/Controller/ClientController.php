@@ -261,6 +261,12 @@ class ClientController extends AppController
                 
                 if($month_active == $i){
 
+                    error_log(
+                        print_r(
+                            $release->type, true     
+                        )
+                    );
+
                     if($release->type == 'receipt'){
                         $month_receitas[$i] += $release->value;
                     }
@@ -403,6 +409,21 @@ class ClientController extends AppController
         $this->set('month_receitas', $month_receitas);
 
         $this->set('categories_values', $categories_values);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 
     public function business()
@@ -946,6 +967,8 @@ class ClientController extends AppController
                 'status =' => 0
             ])
             ->order([ 'id ASC' ]);
+    
+    
 
         $this->set('query_categories', $query_categories);
         $this->set('query_customers', $query_customers);
@@ -1977,11 +2000,18 @@ class ClientController extends AppController
                 ->where([ 
                     'business_id =' => $business_active,
                     'account_id =' => $account_selected_id,
-                    'created >=' => $date_begin,
-                    'created <=' => $date_end
+                    // 'created >=' => $date_begin,
+                    // 'created <=' => $date_end
                 ])
                 ->order([ 'id DESC' ]);
         }
+
+        error_log(
+            print_r( [
+                    'created >=' => $date_begin,
+                    'created <=' => $date_end
+            ], true)
+        );
 
         foreach ($query_releases as $release) {
 
@@ -2819,6 +2849,11 @@ class ClientController extends AppController
                     ->find()
                     ->where(['id' => $ticket_id]);
 
+            $email_user = ' '; 
+            $name_user  = ' ';
+            $assunto = ' ';
+            $date_now = ' ';
+
             foreach ($list_tickets as $ticket) {
 
                 $assunto = $ticket->text;
@@ -2832,17 +2867,22 @@ class ClientController extends AppController
                         ]);
 
                 foreach ($list_user_ticket as $user_active) {
+
+                    error_log(print_r('$user_active', true));
+                    error_log(print_r($user_active, true));
                     $email_user = $user_active->username;
                     $name_user = $user_active->name;
                 }
             }
 
-            // $email = new Email();
-            $email->ViewVars(['name' => $name_user or ""]);
-            $email->ViewVars(['email' => $email_user]);
-            $email->ViewVars(['message' => $assunto]);
-            $email->ViewVars(['date' => $date_now]);
-            $email->ViewVars(['id' => $ticket_id]);
+            $email = new Email('default');
+            
+            // $email->ViewVars(['name' => $name_user]);
+            // $email->ViewVars(['email' => $email_user]);
+            // $email->ViewVars(['message' => $assunto]);
+            // $email->ViewVars(['date' => $date_now]);
+            // $email->ViewVars(['id' => $ticket_id]);
+
             $email->Template('close_chamado')
             ->Subject('#'.$ticket_id.' - '.'chamado fechado pelo cliente!')
             ->EmailFormat('html')
@@ -4012,19 +4052,25 @@ class ClientController extends AppController
     // updateStatusTaxe
     public function approveConciliationItem($conciliation_id = null, $account_id = null, $category_id = null)
     {
+        $date_now = Time::now();
+        
         if ($this->request->is('post')) {
+
+                        
 
             // ATUALIZA CONCILIATION
             // Atualiza Quotation
             $query = TableRegistry::get('FinancesConciliations');
             $query_conciliations = $query->query();
+
+
             $query_conciliations->update()
                 ->set([
                     'status' => 1
                 ])
                 ->where(['id' => $conciliation_id])
                 ->execute();
-
+            
             // NOVO RELEASE
             // Buscar registros
             $query = TableRegistry::get('FinancesConciliations');
@@ -4034,11 +4080,13 @@ class ClientController extends AppController
                         'id =' => $conciliation_id
                     ]);
 
+
             foreach ($query_conciliation as $conciliation) {
                 $conciliation_type = $conciliation->type;
+                $conciliation_type_id = $conciliation->type_id;
                 $conciliation_title = $conciliation->title;
                 $conciliation_value = $conciliation->value;
-                $conciliation_created = $conciliation->created;
+                $conciliation_created = /*$conciliation->created or*/ $date_now;
             }
 
             // Buscar registros
@@ -4077,8 +4125,9 @@ class ClientController extends AppController
             $releases->title = $conciliation_title;
             $releases->value = $conciliation_value;
             $releases->balance = $new_balance;
-            $releases->created = $conciliation_created;
-            $releases->updated = $conciliation_created;
+            $releases->type_id = $conciliation_type_id;
+            $releases->created = $conciliation_created or $date_now;
+            $releases->updated = $conciliation_created or $date_now;
             $query->save($releases);
 
             $query = TableRegistry::get('FinancesAccounts');
