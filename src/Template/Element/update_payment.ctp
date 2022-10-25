@@ -43,10 +43,10 @@
                             <input type="text" class="form-control required money2" name="payment_value" style="font-size: 14px; background-color: #fff;" id="input_update_payment_value">
                             
                             <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Juros</p>
-                            <input type="text" class="form-control accountant required" name="payment_juros" style="font-size: 14px; background-color: #fff;" id="input_update_payment_title" value="0">
+                            <input type="text" class="form-control accountant required" name="payment_fees" style="font-size: 14px; background-color: #fff;" id="input_update_payment_fees">
 
                             <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Multa</p>
-                            <input type="text" class="form-control required money2" name="payment_multa" style="font-size: 14px; background-color: #fff;" id="input_update_payment_value" value="0">
+                            <input type="text" class="form-control required money2" name="payment_fine" style="font-size: 14px; background-color: #fff;" id="input_update_payment_fine">
                             
 
                             <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Tipo de Pagamento</p>
@@ -64,7 +64,7 @@
                                     <option value="<?php echo $customer->id; ?>">
                                     
                                     <?php
-                                    
+
                                         if($customer->type == 'pj'){
                                             echo $customer->pj_razao;
                                         }else{
