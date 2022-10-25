@@ -1484,7 +1484,7 @@ class AdminController extends AppController
             if(!empty($_FILES['file_taxe']['name'])){
 
                 // Upload document
-                $uploaddir = '../webroot/uploads/taxes/';
+                $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/taxes/';
                 $ext = explode(".", $_FILES['file_taxe']['name']);
                 $ext = end($ext);
 
@@ -1566,7 +1566,7 @@ class AdminController extends AppController
                     if(!empty($_FILES['file-document-'.$i]['name'])){
 
                         // Upload document
-                        $uploaddir = '../webroot/uploads/documents/';
+                        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
                         $ext = explode(".", $_FILES['file-document-'.$i]['name']);
                         $ext = end($ext);
 
@@ -1731,7 +1731,7 @@ class AdminController extends AppController
                 $title = $taxe->title;
                 if($taxe->url !== "" && $taxe->url !== NULL){
                     // Delete file
-                    unlink('../webroot/uploads/taxes/'.$taxe->url);
+                    unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/taxes/'.$taxe->url);
                 }
             }
 
@@ -1786,7 +1786,7 @@ class AdminController extends AppController
                 $title = $document->$title;
                 if($document->url !== "" && $document->url !== NULL){
                     // Delete file
-                    unlink('../webroot/uploads/documents/'.$document->url);
+                    unlink($_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/'.$document->url);
                 }
             }
 

@@ -1746,9 +1746,9 @@ class AccountantController extends AppController
             $query_note->save($query_notes);  
 
             if(!empty($_FILES['document_file'])){
-
+                
                 // Upload document
-                $uploaddir = '../webroot/uploads/documents/';
+                $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
                 $ext = explode(".", $_FILES['document_file']['name']);
                 $ext = end($ext);
 
@@ -1911,7 +1911,7 @@ class AccountantController extends AppController
                 $ext = end((explode(".", $_FILES['document_file']['name'])));
                 $image_url = $this->request->data['ticket_id']."_".$comment->id.".".$ext;
 
-                $uploadfile = '../webroot/img/uploads/'.$image_url;
+                $uploadfile =  $_SERVER['DOCUMENT_ROOT'] . '/img/uploads/'.$image_url;
 
                 move_uploaded_file($_FILES['document_file']['tmp_name'], $uploadfile);
 
@@ -2462,7 +2462,7 @@ class AccountantController extends AppController
             if(!empty($_FILES['file_taxe']['name'])){
 
                 // Upload document
-                $uploaddir = '../webroot/uploads/taxes/';
+                $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/taxes/';
                 $ext = explode(".", $_FILES['file_taxe']['name']);
                 $ext = end($ext);
 
@@ -2546,7 +2546,7 @@ class AccountantController extends AppController
                     if(!empty($_FILES['file-document-'.$i]['name'])){
 
                         // Upload document
-                        $uploaddir = '../webroot/uploads/documents/';
+                        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
                         $ext = explode(".", $_FILES['file-document-'.$i]['name']);
                         $ext = end($ext);
 
@@ -2915,7 +2915,7 @@ class AccountantController extends AppController
             foreach ($query_taxes as $taxe) {
 
                 // Delete file
-                unlink('../webroot/uploads/taxes/'.$taxe->url);
+                unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/taxes/'.$taxe->url);
             }
 
             // Atualiza Quotation
@@ -2957,7 +2957,7 @@ class AccountantController extends AppController
                 $title = $document->title;
                 if($document->url !== "" && $document->url !== NULL){
                     // Delete file
-                    unlink('../webroot/uploads/documents/'.$document->url);
+                    unlink($_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/'.$document->url);
                 }
             }
 

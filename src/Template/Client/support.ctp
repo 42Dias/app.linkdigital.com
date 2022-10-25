@@ -57,7 +57,7 @@
 
             <?php 
 
-                $dir    = '../webroot/support';
+                $dir    =  $_SERVER['DOCUMENT_ROOT'] . '/support';
                 $files = scandir($dir);
 
                 $files_total = count($files);

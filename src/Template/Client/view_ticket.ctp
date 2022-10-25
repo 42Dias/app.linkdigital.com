@@ -77,10 +77,14 @@
                             foreach ($list_documents as $document) {
 
                                 if($document->ticket_id == $ticket->id && $document->comment_id == 0){
-                                    echo '<a href="/webroot/uploads/documents/'.$document->url.'" target="_blank" style="font-size: 14px; font-weight: 600;">Download do anexo</a><br><br>';
+                                    echo '<a href="/uploads/documents/'.$document->url.'" target="_blank" style="font-size: 14px; font-weight: 600;">Download do anexo</a><br><br>';
                                 }
                             }
+                            
                         ?>
+
+                        
+                        
                     </div>
                 </div>
 
@@ -111,7 +115,7 @@
                             foreach ($list_documents as $document) {
 
                                 if($document->comment_id == $comment->id){
-                                    echo '<a href="/webroot/uploads/documents/'.$document->url.'" target="_blank" style="font-size: 14px; font-weight: 600;">Download do anexo</a>';
+                                    echo '<a href="/uploads/documents/'.$document->url.'" target="_blank" style="font-size: 14px; font-weight: 600;">Download do anexo</a>';
                                 }
                             }
 
@@ -159,6 +163,8 @@
                                         </button>
                                     </div>
                                 </div>
+
+                                
 
                             </form>
 
