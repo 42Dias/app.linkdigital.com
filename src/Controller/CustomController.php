@@ -553,17 +553,17 @@ class CustomController extends AppController
 
              if($this->request->data['payment_type'] == "provider"){
                 $type = 'provider';
-                $type_id = $this->request->data['payment_provider'] or $this->request->data['receipt_customer'] ;
+                $type_id = $this->request->data['payment_provider'] ;
              }
 
              if($this->request->data['payment_type'] == "employee"){
                 $type = 'employee';
-                $type_id = $this->request->data['payment_employee'] or $this->request->data['receipt_customer'] ;
+                $type_id = $this->request->data['payment_employee'] ;
              }
 
              if($this->request->data['payment_type'] == "partner"){
                 $type = 'partner';
-                $type_id = $this->request->data['payment_partner'] or $this->request->data['receipt_customer'] ;
+                $type_id = $this->request->data['payment_partner'] ;
              }
 
              if($this->request->data['payment_type'] == "none"){
@@ -634,7 +634,7 @@ class CustomController extends AppController
             $date_now = Time::now();
 
             $date_maturity = $this->request->data['receipt_maturity'];
-             $date_maturity =  substr($date_maturity,6 ,4)."-".substr($date_maturity,3 ,2)."-".substr($date_maturity,0 ,2)." 00:00";
+            $date_maturity =  substr($date_maturity,6 ,4)."-".substr($date_maturity,3 ,2)."-".substr($date_maturity,0 ,2)." 00:00";
  
              $value = str_replace(".", "", $this->request->data['receipt_value']);
              $value = str_replace(",", ".", $value);
@@ -646,17 +646,17 @@ class CustomController extends AppController
 
              if($this->request->data['receipt_type'] == "provider"){
                 $type = 'provider';
-                $type_id = $this->request->data['receipt_provider'] or $this->request->data['receipt_customer'];
+                $type_id = $this->request->data['receipt_provider'] or $this->request->data['receipt_customer'] ;
              }
 
              if($this->request->data['receipt_type'] == "employee"){
                 $type = 'employee';
-                $type_id = $this->request->data['receipt_employee'] or $this->request->data['receipt_customer'];
+                $type_id = $this->request->data['receipt_employee'] or $this->request->data['receipt_customer'] ;
              }
 
              if($this->request->data['receipt_type'] == "partner"){
                 $type = 'partner';
-                $type_id = $this->request->data['receipt_partner'] or $this->request->data['receipt_customer'];
+                $type_id = $this->request->data['receipt_partner'] or $this->request->data['receipt_customer'] ;
              }
 
              if($this->request->data['receipt_type'] == "none"){
@@ -695,7 +695,9 @@ class CustomController extends AppController
                 $releases->type = 'receipt';
                 $releases->title = $this->request->data['receipt_title'];
                 $releases->value = $value;
+                $releases->balance = $value;
                 $releases->created = $date_maturity;
+                $releases->updated = $date_maturity;
                 $query->save($releases);
             }
 
@@ -915,9 +917,15 @@ class CustomController extends AppController
              $receipts->title = $this->request->data['receipt_title'];
              $receipts->maturity = $date_maturity;
              $receipts->value = $value;
-             $receipts->status = 0;
              $receipts->created = $date_now;
              $receipts->updated = $date_now;
+
+             // Missing Values  
+             $receipts->fees = $this->request->data['receipt_juros'];
+             $receipts->fine = $this->request->data['receipt_multa'];
+             $receipts->recurrent = $this->request->data['receipt_recurrent'];
+             $receipts->division = $this->request->data['receipt_division'];
+             $receipts->status = 0;
 
              $query->save($receipts);
  
@@ -1411,6 +1419,8 @@ class CustomController extends AppController
             // Import 
             if (isset($_FILES['upload_import'])){
                 
+                $date_now = Time::now();
+                
                 $file_import = $_FILES['upload_import']['tmp_name'];
                 $handle = fopen($file_import, "r");
                 // $content = file_get_contents($handle);
@@ -1477,13 +1487,12 @@ class CustomController extends AppController
                         $conciliations->suggest = 0;
                         $conciliations->created = $conciliation_date;
                         $query->save($conciliations);
+                        
                     }
                 }
-                // print_r($MArr);
-                    
             }
             
-            die();
+            // die();
 
 
             //     $file_import = $_FILES['upload_import']['tmp_name'];
@@ -1553,9 +1562,10 @@ class CustomController extends AppController
             //     fclose($handle);
             // }
 
-            $result = array(
-                'status' => 'ok'
-            );
+    
+        $result = array(
+            'status' => 'ok'
+        );
 
         }else{
             $result = array(
