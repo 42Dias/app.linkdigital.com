@@ -261,12 +261,6 @@ class ClientController extends AppController
                 
                 if($month_active == $i){
 
-                    error_log(
-                        print_r(
-                            $release->type, true     
-                        )
-                    );
-
                     if($release->type == 'receipt'){
                         $month_receitas[$i] += $release->value;
                     }
