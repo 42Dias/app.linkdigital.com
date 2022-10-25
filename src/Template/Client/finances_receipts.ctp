@@ -4,6 +4,11 @@
     echo $this->element('add_receipt');
     echo $this->element('update_receipt');
 
+    
+    echo $this->element('add_customer');
+    echo $this->element('add_file');
+    echo $this->element('add_note');
+
     $month_format_date['01'] = "Janeiro";
     $month_format_date['02'] = "Fevereiro";
     $month_format_date['03'] = "Março";
@@ -174,7 +179,7 @@
 
                             <div class="row margin-t-20" style="padding: 0px 10px; position: relative;">
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
-                                    <strong style="color: #333; font-size: 12px;"><?php echo $receipt->title; ?></strong>
+                                    <strong style="color: #333; font-size: 12px;"><?php echo strval($receipt->title); ?></strong>
                                 </div>
 
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
@@ -266,11 +271,30 @@
 
                                     <div style="position: absolute; right: 0px; top: 0px;">
 
-                                        <i class="material-icons-outlined btn-open-receipt" style="cursor: pointer;" data-tool="tooltip" data-placement="top" title="Editar" data-toggle="modal" data-target="#update_receipt"  
-                                            data-id="<?= $receipt->id; ?>" data-title="<?= $receipt->title; ?>" data-value="<?= $receipt->value; ?>"  data-status="<?= $receipt->status; ?>"
-                                            data-account="<?= $receipt->account_id; ?>"  data-category="<?= $receipt->category_id; ?>" data-type="<?= $receipt->type; ?>" 
-                                            data-division="<?= $receipt->division; ?>" data-maturity="<?= $date; ?>" data-recurrent="<?= $receipt->recurrent; ?>"
-                                            data-type_id="<?= $receipt->type_id; ?>"
+                                       
+                                    <i class="material-icons-outlined btn-open-receipt"
+                                        style="cursor: pointer;"
+                                        data-tool="tooltip"
+                                        data-placement="top"
+                                        title="Editar"
+                                        data-toggle="modal"
+                                        data-target="#update_receipt" 
+                                        data-id="<?= $receipt->id; ?>"
+                                        data-title="<?= strval($receipt->title); ?>"
+                                        data-value="<?= $receipt->value; ?>"
+                                        data-status="<?= $receipt->status; ?>"
+                                        data-account="<?= $receipt->account_id; ?>"
+                                        data-category="<?= $receipt->category_id; ?>"
+                                        data-type="<?= $receipt->type; ?>" 
+                                        data-division="<?= $receipt->division; ?>"
+                                        data-maturity="<?= $date; ?>"
+                                        data-recurrent="<?= $receipt->recurrent; ?>"
+                                        data-type_id="<?= $receipt->type_id; ?>"
+                                        data-annotation="<?= $receipt->annotation; ?>"
+                                        data-file_url="<?= $receipt->file_url; ?>"
+                                        data-fees="<?= $receipt->fees; ?>"
+                                        data-fine="<?= $receipt->fine; ?>"
+                                        data-receipt_customer="<?= $receipt->receipt_customer; ?>"
                                         >
                                             create
                                         </i>
