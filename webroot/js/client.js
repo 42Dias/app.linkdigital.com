@@ -201,7 +201,7 @@ $(function(){
                 form_data.append('upload_import', file_import);
                 form_data.append('business_id', $("#input_import_business_id").val());
                 form_data.append('account_id', $("#input_import_account_id").val());
-        
+       
                 $.ajax({
                     'url': url,
                     'type': 'POST',
@@ -398,6 +398,8 @@ $(function(){
 
     // updateStatusTaxes
     approvedConciliationItem = function(conciliation_id, account_id, category_id){
+
+        console.log("hahahahahahahahahahahahaha zzzzzzzzzzzzzzzzzzzzzzzzzzzz    ")
 
         $.ajax({
             'url': '/api/web/client/conciliations/' + conciliation_id + '/approve/' + account_id + '/' + category_id,
@@ -1155,6 +1157,7 @@ $(document).ready(function() {
         $("#input_update_payment_division").val($(this).data('division'));
         $("#input_update_payment_maturity").val($(this).data('maturity'));
         $("#input_update_payment_recurrent").val($(this).data('recurrent'));
+
         $("#input_update_payment_fees").val($(this).data('fees'));
         $("#input_update_payment_fine").val($(this).data('fine'));
         
@@ -1242,6 +1245,10 @@ $(document).ready(function() {
         $("#input_update_receipt_maturity").val($(this).data('maturity'));
         $("#input_update_receipt_recurrent").val($(this).data('recurrent'));
 
+        $("#input_update_receipt_fees").val($(this).data('fees'));
+        $("#input_update_receipt_fine").val($(this).data('fine'));
+        
+
         if($(this).data('type') === 'customer'){
             $("#select_update_receipt_customer").val($(this).data('type_id'));
         }
@@ -1256,6 +1263,56 @@ $(document).ready(function() {
 
         if($(this).data('type') === 'partner'){
             $("#select_update_receipt_partner").val($(this).data('type_id'));
+        }
+
+
+        if($(this).data('type') == "customer"){
+            $("#text_update_receipt_type").css("display", "block");
+            $("#text_update_receipt_type").html("Cliente");
+            $("#select_update_receipt_customer").css("display", "block");
+
+            $("#select_update_receipt_provider").css("display", "none");
+            $("#select_update_receipt_employee").css("display", "none");
+            $("#select_update_receipt_partner").css("display", "none");
+        }
+
+        if($(this).data('type') == "provider"){
+            $("#text_update_receipt_type").css("display", "block");
+            $("#text_update_receipt_type").html("Fornecedor");
+            $("#select_update_receipt_provider").css("display", "block");
+
+            $("#select_update_receipt_customer").css("display", "none");
+            $("#select_update_receipt_employee").css("display", "none");
+            $("#select_update_receipt_partner").css("display", "none");
+        }
+
+        if($(this).data('type') == "employee"){
+            $("#text_update_receipt_type").css("display", "block");
+            $("#text_update_receipt_type").html("Funcionário");
+            $("#select_update_receipt_employee").css("display", "block");
+
+            $("#select_update_receipt_customer").css("display", "none");
+            $("#select_update_receipt_provider").css("display", "none");
+            $("#select_update_receipt_partner").css("display", "none");
+        }
+
+        if($(this).data('type') == "partner"){
+            $("#text_update_receipt_type").css("display", "block");
+            $("#text_update_receipt_type").html("Sócio");
+            $("#select_update_receipt_partner").css("display", "block");
+
+            $("#select_update_receipt_customer").css("display", "none");
+            $("#select_update_receipt_provider").css("display", "none");
+            $("#select_update_receipt_employee").css("display", "none");
+        }
+
+        if($(this).data('type') == "none"){
+            $("#text_update_receipt_type").css("display", "none");
+            $("#text_update_receipt_type").html("");
+            $("#select_update_receipt_partner").css("display", "none");
+            $("#select_update_receipt_customer").css("display", "none");
+            $("#select_update_receipt_provider").css("display", "none");
+            $("#select_update_receipt_employee").css("display", "none");
         }
     });
 
