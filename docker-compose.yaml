@@ -6,7 +6,8 @@ services:
     restart: always
     command: --lower_case_table_names=1
     environment:
-      MYSQL_DATABASE: 'wwlink_system'
+      MYSQL_ROOT_HOST: '0.0.0.0' 
+      MYSQL_DATABASE: 'wwlink_system' 
       MYSQL_ROOT_PASSWORD: '@sd452Wd5@mP'
     ports:
       - 3306:3306
