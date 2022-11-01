@@ -10,6 +10,6 @@ services:
       MYSQL_DATABASE: 'wwlink_system' 
       MYSQL_ROOT_PASSWORD: '@sd452Wd5@mP'
     ports:
-      - 3306:3306
+      - 3306:3337
     volumes:
       - ./wwlink_system.sql:/docker-entrypoint-initdb.d/schema.sql:ro 
