@@ -254,14 +254,15 @@ return [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
-            'host' => 'localhost',
-            /**
+            'host' => '127.0.0.1',
+            /** 
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
-            //'port' => 'non_standard_port_number',
-            'username' => 'wwlink_admin',
+            'port' => '3306',
+            // 'port' => '3370',
+            'username' => 'root',
             'password' => '@sd452Wd5@mP',
             'database' => 'wwlink_system',
             /*
