@@ -26,7 +26,7 @@ use Cake\I18n\Time;
 // require('/webroot/tools/gerencianet/autoload.php');
 // require( __DIR__. '../../webroot/tools/gerencianet/autoload.php');
 // require( dirname(__FILE__). '../../webroot/tools/gerencianet/autoload.php');
-require('/home/ryan/Desktop/Trabalho/app.linkdigital.com.br/webroot/tools/gerencianet/autoload.php');
+require( $_SERVER['DOCUMENT_ROOT'] . '/tools/gerencianet/autoload.php');
 
 
 use Gerencianet\Exception\GerencianetException;
@@ -2585,11 +2585,15 @@ class PublicController extends AppController
 
             // Envia e-mail para contato
             $email = new Email();
-            $email->ViewVars(['name' => $this->request->data('name')]);
-            $email->ViewVars(['email' => $this->request->data('email')]);
-            $email->ViewVars(['phone' => $this->request->data('phone')]);
-            $email->ViewVars(['message' => $this->request->data('message')]);
-            $email->ViewVars(['date' => date_format($date_now, 'd-m-Y')." às ".date_format($date_now, 'H:i')]);
+            // $email->ViewVars(['name' => $this->request->data('name')]);
+            // $email->ViewVars(['email' => $this->request->data('email')]);
+            // $email->ViewVars(['phone' => $this->request->data('phone')]);
+            // $email->ViewVars(['message' => $this->request->data('message')]);
+            // $email->'name' = $this->request->data('name');
+            // $email->'email' = $this->request->data('email');
+            // $email->'phone' = $this->request->data('phone');
+            // $email->'message' = $this->request->data('message');
+            // $email->'date' = date_format($date_now, 'd-m-Y')." às ".date_format($date_now, 'H:i');
             $email->Template('contact')
             ->Subject($this->request->data('name').' acabou de entrar em contato!')
             ->EmailFormat('html')
