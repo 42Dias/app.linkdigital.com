@@ -24,8 +24,6 @@ use Cake\I18n\Date;
 use Cake\I18n\Time;
 
 // require('/webroot/tools/gerencianet/autoload.php');
-// require( __DIR__. '../../webroot/tools/gerencianet/autoload.php');
-// require( dirname(__FILE__). '../../webroot/tools/gerencianet/autoload.php');
 require( $_SERVER['DOCUMENT_ROOT'] . '/tools/gerencianet/autoload.php');
 
 
@@ -96,6 +94,8 @@ class PublicController extends AppController
                 $this->set('script', ['register', 'public']);
                 $this->set('css', ['default', 'login']);
                 $this->set('description', '');
+                error_log(print_r("cadastro", true));
+
                 break;
 
             case 'dados-empresariais':
@@ -103,6 +103,8 @@ class PublicController extends AppController
                 $this->set('script', ['public']);
                 $this->set('css', ['default', 'public']);
                 $this->set('description', '');
+                error_log(print_r("dados-empresariais", true));
+
                 break;
 
             case 'especialidades/ecommerce':
@@ -110,6 +112,8 @@ class PublicController extends AppController
                 $this->set('script', ['public']);
                 $this->set('css', ['default', 'public']);
                 $this->set('description', 'Veja como um especialista em contabilidade no segmento de e-Commerce tem papel fundamental na gestão do seu negócio com a Link Contabilidade Consultiva.');
+                error_log(print_r("especialidades", true));
+
                 break;
 
             case 'especialidades/transportadoras':
