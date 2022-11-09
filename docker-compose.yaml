@@ -2,14 +2,17 @@ version: '3'
 services:
   mysql:
     image: mysql:5.7
-    container_name: mysql_healthlife
+    container_name: mysql_link
     restart: always
     command: --lower_case_table_names=1
     environment:
-      MYSQL_ROOT_HOST: '0.0.0.0' 
-      MYSQL_DATABASE: 'wwlink_system' 
-      MYSQL_ROOT_PASSWORD: '@sd452Wd5@mP'
+      MYSQL_DATABASE: "wwlink_system"
+      MYSQL_ROOT_PASSWORD: "@sd452Wd5@mP"
     ports:
-      - 3306:3306
+      - "3337:3306"
+    expose:
+      - "3337"
     volumes:
-      - ./wwlink_system.sql:/docker-entrypoint-initdb.d/schema.sql:ro 
+      - ./wwlink_system.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+

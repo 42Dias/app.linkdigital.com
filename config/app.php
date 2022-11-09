@@ -254,14 +254,19 @@ return [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
-            'host' => 'localhost',
+            'host' => '189.127.14.10',
+            // 'host' => '127.0.0.1',
+
+            'port' => '3337',
+            // 'port' => '3306',
+
             /**
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'wwlink_admin',
+            // 'username' => 'wwlink_admin',
             'password' => '@sd452Wd5@mP',
             'database' => 'wwlink_system',
             /*
@@ -271,7 +276,7 @@ return [
             'timezone' => 'UTC',
             'flags' => [],
             'cacheMetadata' => false,
-            'log' => false,
+            'log' => true,
 
             /**
              * Set identifier quoting to true if you are using reserved words or
@@ -301,20 +306,52 @@ return [
         'test' => [
             'className' => Connection::class,
             'driver' => Mysql::class,
-            'persistent' => false,
-            'host' => 'localhost',
-            //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
+            'persistent' => true,
+            'host' => '189.127.14.10',
+            // 'host' => 'projetos.symtropy.com.br',
+            // 'host' => 'localhost',
+            /** 
+             * CakePHP will use the default DB port based on the driver selected
+             * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
+             * the following line and set the port accordingly
+             */
+            // 'port' => '3337',
+            'port' => '3337',
+            // 'port' => '3370',
+            'username' => 'root',
+            'password' => '@sd452Wd5@mP',
+            'database' => 'wwlink_system',
+            /*
+             * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
+             */
             //'encoding' => 'utf8mb4',
             'timezone' => 'UTC',
-            'cacheMetadata' => true,
+            'flags' => [],
+            'cacheMetadata' => false,
+            'log' => true,
+
+            /**
+             * Set identifier quoting to true if you are using reserved words or
+             * special characters in your table or column names. Enabling this
+             * setting will result in queries built using the Query Builder having
+             * identifiers quoted when creating SQL. It should be noted that this
+             * decreases performance because each query needs to be traversed and
+             * manipulated before being executed.
+             */
             'quoteIdentifiers' => false,
-            'log' => false,
+
+            /**
+             * During development, if using MySQL < 5.6, uncommenting the
+             * following line could boost the speed at which schema metadata is
+             * fetched from the database. It can also be set directly with the
+             * mysql configuration directive 'innodb_stats_on_metadata = 0'
+             * which is the recommended value in production environments
+             */
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-            'url' => env('DATABASE_TEST_URL', null),
+
+            'url' => env('DATABASE_URL', null),
         ],
+
     ],
 
     /**
