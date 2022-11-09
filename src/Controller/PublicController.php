@@ -24,7 +24,7 @@ use Cake\I18n\Date;
 use Cake\I18n\Time;
 
 // require('/webroot/tools/gerencianet/autoload.php');
-require( $_SERVER['DOCUMENT_ROOT'] . '/tools/gerencianet/autoload.php');
+require( getcwd() . '/webroot'  . '/tools/gerencianet/autoload.php');
 
 
 use Gerencianet\Exception\GerencianetException;

@@ -997,7 +997,7 @@ class CustomController extends AppController
             if(!empty($_FILES['file_upload']['name'])){
 
                 // Upload document
-                $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/files/';
+                $uploaddir =  getcwd() . '/webroot'  . '/uploads/files/';
                 $ext = explode(".", $_FILES['file_upload']['name']);
                 $ext = end($ext);
 
@@ -1360,7 +1360,7 @@ class CustomController extends AppController
                 ]);
 
             foreach ($query_documents as $document) {
-                unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/files/'.$document->url);
+                unlink( getcwd() . '/webroot'  . '/uploads/files/'.$document->url);
             }
 
             // Atualiza Quotation

@@ -2708,7 +2708,7 @@ class ClientController extends AppController
             if(!empty($_FILES['document_file'])){
 
                 // Upload document
-                $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
+                $uploaddir = getcwd() . '/webroot'  . '/uploads/documents/';
                 $ext = explode(".", $_FILES['document_file']['name']);
                 $ext = end($ext);
                 $url_document = $business_active."_".$query_notes->id.".".$ext;
@@ -2775,7 +2775,7 @@ class ClientController extends AppController
             if(!empty($_FILES['document_file'])){
 
                 // Upload document
-                $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
+                $uploaddir = getcwd() . '/webroot'  . '/uploads/documents/';
                 $ext = explode(".", $_FILES['document_file']['name']);
                 $ext = end($ext);
 
@@ -3194,7 +3194,7 @@ class ClientController extends AppController
                 if(!empty($arquivo['name'][$i])){
 
                     // Upload document
-                    $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/notes/';
+                    $uploaddir =  getcwd() . '/webroot'  . '/uploads/notes/';
                     $ext = explode(".", $arquivo['name'][$i]);
                     $ext = end($ext);
 
@@ -3284,7 +3284,7 @@ class ClientController extends AppController
                 $title = $note->title;
                 if($note->url !== "" && $note->url !== NULL){
                     // Delete file
-                    unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/notes/'.$note->url);
+                    unlink( getcwd() . '/webroot'  . '/uploads/notes/'.$note->url);
                 }
             }
 
@@ -3366,7 +3366,7 @@ class ClientController extends AppController
             if(!empty($_FILES['file_extract']['name'])){
 
                 // Upload document
-                $uploaddir =  $_SERVER['DOCUMENT_ROOT'] . '/uploads/extracts/';
+                $uploaddir =  getcwd() . '/webroot'  . '/uploads/extracts/';
                 $ext = explode(".", $_FILES['file_extract']['name']);
                 $ext = end($ext);
 
@@ -3454,7 +3454,7 @@ class ClientController extends AppController
                 $bank = $extract->bank;
                 if($extract->url !== "" && $extract->url !== NULL){
                     // Delete file
-                    unlink( $_SERVER['DOCUMENT_ROOT'] . '/uploads/extracts/'.$extract->url);
+                    unlink( getcwd() . '/webroot'  . '/uploads/extracts/'.$extract->url);
                 }
             }
 
@@ -3539,7 +3539,7 @@ class ClientController extends AppController
                    if(!empty($_FILES['file-document-'.$i]['name'])){
 
                         // Upload document
-                        $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
+                        $uploaddir = getcwd() . '/webroot'  . '/uploads/documents/';
                         $ext = explode(".", $_FILES['file-document-'.$i]['name']);
                         $ext = end($ext);
 
@@ -3639,7 +3639,7 @@ class ClientController extends AppController
             if(!empty($_FILES['file-document-action-'.$document_id_select]['name'])){
 
                 // Upload document
-                $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/';
+                $uploaddir = getcwd() . '/webroot'  . '/uploads/documents/';
                 $ext = explode(".", $_FILES['file-document-action-'.$document_id_select]['name']);
 
                 $ext = end($ext);
@@ -3744,7 +3744,7 @@ class ClientController extends AppController
                 ]);
 
             foreach ($query_documents as $document) {
-                unlink($_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/'.$document->url);
+                unlink(getcwd() . '/webroot'  . '/uploads/documents/'.$document->url);
             }
 
             // Atualiza Quotation
@@ -3854,7 +3854,7 @@ class ClientController extends AppController
 
                 if($document->url !== "" && $document->url !== NULL){
                     // Delete file
-                    unlink($_SERVER['DOCUMENT_ROOT'] . '/uploads/documents/'.$document->url);
+                    unlink(getcwd() . '/webroot'  . '/uploads/documents/'.$document->url);
                 }
             }
 
