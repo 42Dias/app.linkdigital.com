@@ -254,8 +254,8 @@ return [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
-            'host' => '189.127.14.10',
-            // 'host' => '127.0.0.1',
+            // 'host' => '189.127.14.10',
+            'host' => '127.0.0.1',
 
             'port' => '3337',
             // 'port' => '3306',
