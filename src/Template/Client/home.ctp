@@ -212,7 +212,7 @@
 
                             while($finish_weekly == false){
 
-                                if($date_active == $date_end){
+                                if($date_active >= $date_end){
                                     $finish_weekly = true;
 
                                 }else{
@@ -272,7 +272,7 @@
 
                             while($finish_diary == false){
 
-                                if($date_active == $date_end){
+                                if($date_active >= $date_end){
                                     $finish_diary = true;
 
                                 }else{
@@ -337,7 +337,7 @@
 
                             while($finish_fixed == false){
 
-                                if($date_active == $date_end){
+                                if($date_active >= $date_end){
                                     $finish_fixed = true;
 
                                 }else{
