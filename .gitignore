@@ -1,1 +1,14 @@
 *.log
+*_log
+
+**/*.log
+**/*_log
+
+logs/*
+**logs/*
+
+webroot/uploads/
+webroot/support/
+/tmp/*
+node_modules
+

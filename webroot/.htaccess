@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    <!-- RewriteRule ^ index.php [L] -->
+    RewriteRule ^ /linkdigital/webroot/index.php [L]
 </IfModule>
