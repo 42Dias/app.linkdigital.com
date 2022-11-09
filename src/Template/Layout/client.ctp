@@ -395,10 +395,11 @@
                       </span>
 
                       <?php if($origin_user == 'cadastro'){ ?>
-
-                        <span class="text-time" style="background-color: #ffcc00; display: inline-block; border-radius: 50px; padding: 0px 10px; font-size: 10px; font-weight: 600; text-transform: uppercase;">
-                            <?php echo $expire_days; ?> dias
-                        </span>
+                        <!-- 
+                            <span class="text-time" style="background-color: #ffcc00; display: inline-block; border-radius: 50px; padding: 0px 10px; font-size: 10px; font-weight: 600; text-transform: uppercase;">
+                                <?php echo $expire_days || 0; ?> dias
+                            </span>
+                        -->
 
                       <?php } ?>
 
