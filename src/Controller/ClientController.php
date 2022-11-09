@@ -29,6 +29,7 @@ class ClientController extends AppController
 
     public function initialize()
     {
+
         setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         date_default_timezone_set('America/Sao_Paulo');
 
@@ -36,20 +37,22 @@ class ClientController extends AppController
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Auth');
 
+
         $date_now = Time::now();
         $business_active = 0;
         $business_name = "";
         $business_cnpj = "";
 
-        $this->set('id_user', $this->Auth->user('id'));
-        $this->set('image_user', $this->Auth->user('image'));
-        $this->set('email_user', $this->Auth->user('username'));
-        $this->set('name_user', $this->Auth->user('name'));
-        $this->set('cpf_user', $this->Auth->user('cpf'));
-        $this->set('lastname_user', $this->Auth->user('lastname'));
-        $this->set('active_login', $this->Auth->user('active_login'));
-        $this->set('origin_user', $this->Auth->user('origin'));
-        $this->set('date_now', $date_now);
+
+        $this->set('id_user',       $this->Auth->user('id') or [] );
+        $this->set('image_user',    $this->Auth->user('image') or [] );
+        $this->set('email_user',    $this->Auth->user('username') or [] );
+        $this->set('name_user',     $this->Auth->user('name') or [] );
+        $this->set('cpf_user',      $this->Auth->user('cpf') or [] );
+        $this->set('lastname_user', $this->Auth->user('lastname') or [] );
+        $this->set('active_login',  $this->Auth->user('active_login') or [] );
+        $this->set('origin_user',   $this->Auth->user('origin') or [] );
+        $this->set('date_now',      $date_now);
         $this->set('finances_select', '');
 
         // // TERMS
@@ -76,6 +79,8 @@ class ClientController extends AppController
         // $diff = strtotime($data_expirada) - strtotime($date_active);
         // $expire_days = floor($diff / (60 * 60 * 24));  
 
+        $expire_days = 0;
+
         // Buscar registros
         $query = TableRegistry::get('AccessBusiness');
         $query_access = $query
@@ -83,6 +88,7 @@ class ClientController extends AppController
                 ->where([
                     'user_id =' => $this->Auth->user('id')
                 ]);
+
 
         foreach ($query_access as $access) {
             $business_active = $access->business_id;
@@ -95,6 +101,7 @@ class ClientController extends AppController
                 ->where([
                     'id =' => $business_active
                 ]);
+            
 
         foreach ($query_business as $business) {
             
@@ -116,9 +123,11 @@ class ClientController extends AppController
             // }
         }
 
+        
         $this->set('business_cnpj', $business_cnpj);
         $this->set('business_name', $business_name);
-        // $this->set('expire_days', $expire_days);
+        $this->set('expire_days', $expire_days);
+
     }
 
     public function home()
@@ -403,20 +412,6 @@ class ClientController extends AppController
         $this->set('month_receitas', $month_receitas);
 
         $this->set('categories_values', $categories_values);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
     }
 
@@ -2675,13 +2670,13 @@ class ClientController extends AppController
             }
         }
 
-        $this->set('data_comments', $query_comment);
-        $this->set('list_documents', $query_docs);
-        $this->set('data_tickets', $query_documents);
-        $this->set('all_business', $query_business);
-        $this->set('business_id', $business_active);
+        $this->set('data_comments',      $query_comment);
+        $this->set('list_documents',     $query_docs);
+        $this->set('data_tickets',       $query_documents);
+        $this->set('all_business',       $query_business);
+        $this->set('business_id',        $business_active);
         $this->set('comment_permission', $comment_permission);
-        $this->set('comment_names', $comment_names);
+        $this->set('comment_names',      $comment_names);
     }
     
     public function addCommentTicket($id = null)
@@ -2862,8 +2857,6 @@ class ClientController extends AppController
 
                 foreach ($list_user_ticket as $user_active) {
 
-                    error_log(print_r('$user_active', true));
-                    error_log(print_r($user_active, true));
                     $email_user = $user_active->username;
                     $name_user = $user_active->name;
                 }
