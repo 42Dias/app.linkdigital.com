@@ -2,7 +2,8 @@
     "name": "app-backend",
     "description": "Backend",
     "scripts": {
-      "start": "bin/cake server",
+      "start": "bin/cake server -p 80",
+      "dev": "bin/cake server -p 80",
       "server": "docker-compose --env-file .env up -d",
       "dev:dockerup": "docker-compose --env-file .env.development up -d",
       "dev:dockerdown": "docker-compose --env-file .env.development down",
