@@ -110,7 +110,6 @@
                     } 
 
                     for ($i=1; $i < 13; $i++) { 
-                        // $values_despesas .= str_replace(',', '.', ($month_despesas[$i] * -1)).','; 
                         $values_despesas .= str_replace(',', '.', ($month_despesas[$i])).','; 
                     } 
 
@@ -127,12 +126,6 @@
                 <canvas id="myChart1" height="50"></canvas>
 
                 <script>
-                    console.log(
-                        [<?php echo $values_despesas; ?>],
-                        [<?php echo $values_receitas; ?>],
-                        [<?php echo $values_balance; ?>],
-                    )
-
                     var chart    = document.getElementById('myChart1').getContext('2d'),
                     
                     gradient_green = chart.createLinearGradient(0, 0, 0, 450);
@@ -258,12 +251,6 @@
                         <!-- ACCOUNTS -->
                         <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-xs-12 animate-scroll">
 
-                            <!--<a href="?tab_select=15&account_id=all" class="box-account-item <?php if($account_selected_id == "all"){ echo "active"; } ?>" style="">-->
-                            <!--    <strong style="color: #333; font-size: 14px;">Todas contas</strong>-->
-                            <!--    <br>-->
-                            <!--    <strong style="color: #28bd56; font-size: 12px;">R$ <?php echo number_format($total_accounts, 2, ',', '.'); ?></strong>-->
-                            <!--</a>-->
-
                             <?php $x=0; foreach ($query_accounts as $account) { $x++; ?>
 
                                 <a href="?tab_select=15&account_id=<?php echo $account->id; ?>" class="box-account-item <?php if($account_selected_id == $account->id){ echo "active"; } ?>" style="">
@@ -278,28 +265,6 @@
 
                         <!-- RELEASES -->
                         <div class="col-xl-10 col-lg-10 col-md-6 col-sm-12 col-xs-12 animate-scroll" style="display: <?php if($account_selected_id == "all"){ echo "none"; } ?>;">
-
-                            <!-- <div class="row margin-t-20">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 animate-scroll">
-
-                                    <p class="text" style="margin-top: 5px; margin-bottom: 0px; color: #666;">
-                                        Extrato                                
-                                    </p>
-                                </div>
-
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right animate-scroll">
-
-                                    
-                                    <div class="btn btn-line-gray size-sm">
-                                            EXPORTAR
-                                    </div>
-
-                                    <div class="btn btn-yellow size-sm" data-toggle="modal" data-target="#import_releases">
-                                            IMPORTAR
-                                    </div>
-                                </div>
-                            </div> -->
-
                             <div class="row margin-t-10" style="background-color: #efefef; padding: 10px; border-radius: 10px;">
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
                                     <p class="text" style="margin-bottom: 0px; color: #666; font-weight: 600;">Data</p>
@@ -328,24 +293,11 @@
                                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
                                     <p class="text" style="margin-bottom: 0px; color: #666; font-weight: 600;">Saldo</p>
                                 </div>
-                                
+
                             </div>
 
                             <?php
                             $old_date = ''; $x=0; foreach ($query_releases as $release) { $x++; ?>
-
-                                <?php 
-                                    // if($old_date == ''){
-                                    //     echzo '<div class="release-date-item">Dia '.date_format($release->created, 'd').' de '.$month_format_date[date_format($release->created, 'm')].' de '.date_format($release->created, 'Y').'</div>';
-                                    //     $old_date = $release->created;
-                                    // }else{
-
-                                    //     if($old_date != $release->created){
-                                    //         echo '<div class="release-date-item">Dia '.date_format($release->created, 'd').' de '.$month_format_date[date_format($release->created, 'm')].' de '.date_format($release->created, 'Y').'</div>';
-                                    //         // $old_date = $release->created;
-                                    //     }   
-                                    // }
-                                ?>
 
                                 <div class="row margin-t-20" style="padding: 0px 10px; position: relative;">
                                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">
@@ -411,20 +363,6 @@
                                 </div>
 
                                 <hr>
-
-                                <!--<?php if($old_date != $release->created){ $old_date = $release->created; ?>-->
-
-                                <!--    <div class="row margin-t-20" style="padding: 10px 10px; position: relative; background-color: #dcdcdc; color: #333; border-radius: 10px;">-->
-                                <!--        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 animate-scroll">-->
-                                <!--            <strong style="color: #333; font-size: 12px;">Saldo do dia</strong>-->
-                                <!--        </div>-->
-
-                                <!--        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12 animate-scroll">-->
-                                <!--            <strong style="color: #333; font-size: 12px;">R$ 0,00</strong>-->
-                                <!--        </div>-->
-                                <!--    </div>-->
-
-                                <!--<?php } ?>-->
 
                             <?php } ?>
 
