@@ -1575,4 +1575,31 @@ class CustomController extends AppController
 
         $this->set(compact('result'));
     }
+
+    //  CRUD FLUXO DE CAIXA
+    //  client/finances/releases
+    //  DELETE
+    public function releasesDelete($release_id = null){
+        if ($this->request->is('post')) {
+
+            // Atualiza Quotation
+            $query = TableRegistry::get('FinancesReleases');
+            $query_releases = $query->query();
+            $query_releases->delete()
+                ->where(['id' => $release_id])
+                ->execute();
+
+            $result = array(
+                'status' => 'ok'
+            );
+
+        }else{
+            $result = array(
+                'status' => 'error-post'
+            );
+        }
+
+        $this->set(compact('result'));
+    }
+
 }

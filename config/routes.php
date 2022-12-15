@@ -295,6 +295,11 @@ Router::scope('/api/web/', function (RouteBuilder $routes) {
     $routes->connect('/custom/files/:id/delete', ['controller' => 'custom', 'action' => 'filesDelete'],['pass' => ['id'], 'id' => '[0-9]+']);
     $routes->connect('/custom/notes/:id/delete', ['controller' => 'custom', 'action' => 'notesDelete'],['pass' => ['id'], 'id' => '[0-9]+']);
 
+    //  CRUD FLUXO DE CAIXA
+    //  client/finances/releases
+    //  DELETE
+    $routes->connect('/custom/releases/:id/delete',['controller' => 'custom', 'action' => 'releasesDelete'],['pass' => ['id'], 'id' => '[0-9]+']);
+
     $routes->connect('/custom/conciliations/import', ['controller' => 'custom', 'action' => 'conciliationsImport']);
 
 });
