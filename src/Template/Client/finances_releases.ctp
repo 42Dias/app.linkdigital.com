@@ -392,9 +392,19 @@
                                                 create
                                             </i>
                                             
-                                            <i class="material-icons-outlined btn_send_form" style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Remover">
+                                            <i 
+                                              class="material-icons-outlined btn_send_form" 
+                                              style="cursor: pointer;" 
+                                              data-toggle="tooltip" 
+                                              data-placement="top" 
+                                              title="Remover" 
+                                              data-form="#form" 
+                                              data-redirect="none"
+                                              data-url="/api/web/custom/releases/<?php echo $release->id; ?>/delete"
+                                            >
                                                 delete
                                             </i>
+                                            
                                         </div>
                                         
                                     </div>
