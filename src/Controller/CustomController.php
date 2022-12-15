@@ -1611,12 +1611,13 @@ class CustomController extends AppController
               ->set([
                   'business_id' => $this->request->data['business_id'],
                   'type_id' => $this->request->data['type_id'],
-                  'account_id' => $this->request->data['account_id'],
-
+                  
+                  'account_id' => $this->request->data['releases_account'],
                   'title' => $this->request->data['releases_title'],
                   'category_id' => $this->request->data['releases_category_id'],
                   'type' => $this->request->data['releases_type'],
                   'value' => $this->request->data['releases_value'],
+                  'balance' => $this->request->data['releases_balance'],
                   'balance' => $this->request->data['releases_balance'],
                   'updated' => $date_now
               ])

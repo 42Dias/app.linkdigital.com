@@ -13,7 +13,6 @@
 
                     <input type="hidden" name="business_id" value="<?= $business_id; ?>" id="business_id">
                     <input type="hidden" name="type_id" id="type_id">
-                    <input type="hidden" name="account_id" id="account_id">
                     <input type="hidden" name="release_id" id="release_id">
 
                     <div class="row margin-t-20">
