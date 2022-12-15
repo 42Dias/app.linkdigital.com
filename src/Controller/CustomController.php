@@ -1578,11 +1578,9 @@ class CustomController extends AppController
 
     //  CRUD FLUXO DE CAIXA
     //  client/finances/releases
-    //  DELETE
     public function releasesDelete($release_id = null){
         if ($this->request->is('post')) {
 
-            // Atualiza Quotation
             $query = TableRegistry::get('FinancesReleases');
             $query_releases = $query->query();
             $query_releases->delete()
@@ -1600,6 +1598,42 @@ class CustomController extends AppController
         }
 
         $this->set(compact('result'));
+    }
+
+    public function releasesUpdate(){
+      if ($this->request->is('post')) {
+
+          $date_now = Time::now();
+
+          $query = TableRegistry::get('FinancesReleases');
+          $query_customers = $query->query();
+          $query_customers->update()
+              ->set([
+                  'business_id' => $this->request->data['business_id'],
+                  'type_id' => $this->request->data['type_id'],
+                  'account_id' => $this->request->data['account_id'],
+
+                  'title' => $this->request->data['releases_title'],
+                  'category_id' => $this->request->data['releases_category_id'],
+                  'type' => $this->request->data['releases_type'],
+                  'value' => $this->request->data['releases_value'],
+                  'balance' => $this->request->data['releases_balance'],
+                  'updated' => $date_now
+              ])
+              ->where(['id' => $this->request->data['release_id']])
+              ->execute();
+
+          $result = array(
+              'status' => 'ok'
+          );
+
+      }else{
+          $result = array(
+              'status' => 'error-post'
+          );
+      }
+
+      $this->set(compact('result'));
     }
 
 }

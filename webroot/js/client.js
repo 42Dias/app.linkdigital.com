@@ -1141,6 +1141,18 @@ $(document).ready(function () {
     }
   })
 
+  $('.btn-open-releases').click(function () {
+    $('#input_update_releases_title').val($(this).data('title'))
+    $('#input_update_releases_category').val($(this).data('category'))
+    $('#input_update_releases_account').val($(this).data('account'))
+    $('#input_update_releases_type').val($(this).data('type'))
+    $('#input_update_releases_value').val($(this).data('value'))
+    $('#input_update_releases_balance').val($(this).data('balance'))
+    $('#type_id').val($(this).data('type_id'))
+    $('#account_id').val($(this).data('account_id'))
+    $('#release_id').val($(this).data('id'))
+  })
+
   // btn-open-receipt
   $('.btn-open-receipt').click(function () {
     $('#input_update_receipt_id').val($(this).data('id'))

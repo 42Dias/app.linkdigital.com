@@ -1,6 +1,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <?php
+    echo $this->element('update_releases');
+
 
     $month_format_date['01'] = "Janeiro";
     $month_format_date['02'] = "Fevereiro";
@@ -340,7 +342,24 @@
                                         
                                         <div style="position: absolute; right: 0px; top: 0px;">
 
-                                            <i class="material-icons-outlined" style="cursor: pointer;" data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <i 
+                                              class="material-icons-outlined btn-open-releases"
+                                              style="cursor: pointer;"
+                                              data-tool="tooltip"
+                                              data-placement="top"
+                                              title="Editar"
+                                              data-toggle="modal"
+                                              data-target="#update_releases"
+                                              data-id="<?= $release->id; ?>"
+                                              data-title="<?= strval($release->title); ?>"
+                                              data-category="<?= $release->category_id; ?>"
+                                              data-account="<?= $release->account_id; ?>"
+                                              data-type="<?= strval($release->type); ?>"
+                                              data-type_id="<?= $release->type_id; ?>"
+                                              data-account_id="<?= $release->account_id; ?>"
+                                              data-value="<?= $release->value; ?>"
+                                              data-balance="<?= $release->balance; ?>"
+                                            >
                                                 create
                                             </i>
                                             

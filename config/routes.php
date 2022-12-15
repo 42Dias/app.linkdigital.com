@@ -297,8 +297,8 @@ Router::scope('/api/web/', function (RouteBuilder $routes) {
 
     //  CRUD FLUXO DE CAIXA
     //  client/finances/releases
-    //  DELETE
     $routes->connect('/custom/releases/:id/delete',['controller' => 'custom', 'action' => 'releasesDelete'],['pass' => ['id'], 'id' => '[0-9]+']);
+    $routes->connect('/custom/releases/update', ['controller' => 'custom', 'action' => 'releasesUpdate']);
 
     $routes->connect('/custom/conciliations/import', ['controller' => 'custom', 'action' => 'conciliationsImport']);
 
