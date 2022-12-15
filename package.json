@@ -3,7 +3,9 @@
     "description": "Backend",
     "scripts": {
       "start": "bin/cake server",
-      "server": "docker-compose up -d",
+      "server": "docker-compose --env-file .env up -d",
+      "dev:dockerup": "docker-compose --env-file .env.development up -d",
+      "dev:dockerdown": "docker-compose --env-file .env.development down",
       "install-linux": "sudo apt-get install php5.6; sudo apt-get install curl ; sudo apt-get install php5.6-curl ; sudo apt install php5.6-xml ; sudo apt install php5.6-mbstring ; sudo apt install zip unzip php-zip ; sudo apt install php5.6-pgsql ; sudo apt-get install php5.6-intl"
     },
     "engines": {
