@@ -6,12 +6,12 @@ services:
     restart: always
     command: --lower_case_table_names=1
     environment:
-      MYSQL_DATABASE: "wwlink_system"
-      MYSQL_ROOT_PASSWORD: "@sd452Wd5@mP"
+      MYSQL_DATABASE: ${DATABASE_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - "3337:3306"
+      - "${DATABASE_PORT}:3306"
     expose:
-      - "3337"
+      - "${DATABASE_PORT}"
     volumes:
       - ./wwlink_system.sql:/docker-entrypoint-initdb.d/schema.sql:ro
 
