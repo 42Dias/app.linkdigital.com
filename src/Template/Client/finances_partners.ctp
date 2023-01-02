@@ -78,7 +78,7 @@
 
                                 <?php $total_partners=0; foreach ($query_partners as $partner) { $total_partners++; ?>
 
-                                    <a href="?tab_select=11&customer_id=<?php echo $partner->id; ?>" class="box-client-item <?php if($partner_selected_id == $partner->id){ echo "active"; } ?>" style="">
+                                    <a href="?tab_select=11&partner_id=<?php echo $partner->id; ?>" class="box-client-item <?php if($partner_selected_id == $partner->id){ echo "active"; } ?>" style="">
                                         <strong style="color: #333; font-size: 12px;">
                                         
                                             <?php
