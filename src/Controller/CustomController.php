@@ -208,6 +208,7 @@ class CustomController extends AppController
              $partners->account_type = $this->request->data['partner_account_type'];
              $partners->site = $this->request->data['partner_site'];
              $partners->created = $date_now;
+             $partners->updated = $date_now;
              $query->save($partners);
  
              $result = array(
