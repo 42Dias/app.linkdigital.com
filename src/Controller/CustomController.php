@@ -960,6 +960,7 @@ class CustomController extends AppController
             $query = TableRegistry::get('BusinessCategories');
             $categories = $query->newEntity();
             $categories->business_id = $this->request->data['business_id'];
+            $categories->origin_id = $this->request->data['origin_id'];
             $categories->type = $this->request->data['category_type'];
             $categories->group_categories = $this->request->data['category_group'];
             $categories->name = $this->request->data['category_name'];

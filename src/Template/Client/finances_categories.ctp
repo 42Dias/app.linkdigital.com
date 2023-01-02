@@ -99,6 +99,12 @@
                                 if($category_initial == 'outras_imobilizacoes_por_aquisicao'){ $text_group_category = 'Outras Imobilizações por Aquisição'; }
                                 if($category_initial == 'emprestimos_e_financiamentos'){ $text_group_category = 'Empréstimos e Financiamentos'; }
                                 if($category_initial == 'parcelamentos_e_dividas'){ $text_group_category = 'Parcelamentos e Dívidas'; }
+
+                                if($category_initial == 'receitas_operacionais'){ $text_group_category = 'Receitas operacionais'; }
+                                if($category_initial == 'custos_operacionais'){ $text_group_category = 'Custos operacionais'; }
+                                if($category_initial == 'despesas_operacionais_e_outras_receitas'){ $text_group_category = 'Despesas operacionais e outras receitas'; }
+                                if($category_initial == 'atividade_de_investimento'){ $text_group_category = 'Atividade de investimento'; }
+                                if($category_initial == 'atividade_de_financiamento'){ $text_group_category = 'Atividade de financiamento'; }
  
                             ?>
                             

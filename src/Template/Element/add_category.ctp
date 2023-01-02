@@ -13,6 +13,7 @@
                 <form id="form_add_category">
 
                     <input type='hidden' name="business_id" value="<?= $business_id; ?>" id="business_id">
+                    <input type='hidden' name="origin_id" value="<?= $business_id; ?>" id="origin_id">
 
                     <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Tipo</p>
                     <select type="text" class="form-control required" name="category_type" data-type="category" style="font-size: 14px; background-color: #fff;">
@@ -24,7 +25,7 @@
                     <select type="text" class="form-control required" name="category_group" data-type="category" style="font-size: 14px; background-color: #fff;">
                         <option value="receitas_operacionais">Receitas operacionais</option>
                         <option value="custos_operacionais">Custos operacionais</option>
-                        <option value="despesas_opercionais_e_outras_receitas">Despesas opercionais e outras receitas</option>
+                        <option value="despesas_operacionais_e_outras_receitas">Despesas operacionais e outras receitas</option>
                         <option value="atividade_de_investimento">Atividade de investimento</option>
                         <option value="atividade_de_financiamento">Atividade de financiamento</option>
                     </select>
