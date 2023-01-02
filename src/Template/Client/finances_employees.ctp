@@ -75,7 +75,7 @@
 
                                 <?php $total_employees=0; foreach ($query_employees as $employee) { $total_employees++; ?>
 
-                                    <a href="?tab_select=10&customer_id=<?php echo $employee->id; ?>" class="box-client-item <?php if($employee_selected_id == $employee->id){ echo "active"; } ?>" style="">
+                                    <a href="?tab_select=10&employee_id=<?php echo $employee->id; ?>" class="box-client-item <?php if($employee_selected_id == $employee->id){ echo "active"; } ?>" style="">
                                         <strong style="color: #333; font-size: 12px;">
                                         
                                             <?php
