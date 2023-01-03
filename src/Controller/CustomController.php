@@ -732,10 +732,9 @@ class CustomController extends AppController
              $date_now = Time::now();
 
              $total = str_replace(".", "", $this->request->data['account_total']);
-
+             
              $date_note =  $this->request->data['account_date'];
-             $date_note =  substr($date_note,6 ,4)."-".substr($date_note,3 ,2)."-".substr($date_note,0 ,2);
- 
+             $date_note =  substr($date_note,6 ,4)."-".substr($date_note,3 ,2)."-".substr($date_note,0 ,2); 
              // Cria nova Quotations
              $query = TableRegistry::get('FinancesAccounts');
              $accounts = $query->newEntity();
@@ -744,9 +743,10 @@ class CustomController extends AppController
              $accounts->agency = $this->request->data['account_agency'];
              $accounts->account = $this->request->data['account_account'];
              $accounts->account_type = $this->request->data['account_account_type'];
-             $accounts->date = $this->request->data['account_date'];
+             $accounts->date = $date_note;
              $accounts->total = $total;
              $accounts->created = $date_now;
+             $accounts->updated = $date_now;
              $query->save($accounts);
 
              // Cria nova Quotations
@@ -760,7 +760,8 @@ class CustomController extends AppController
              $releases->title = 'Saldo inicial';
              $releases->value = $total;
              $releases->balance = $total;
-             $releases->created = $date_note." 00:00";
+             $releases->created = $date_note." 00:00:00";
+             $releases->updated = $date_note." 00:00:00";
              $query->save($releases);
  
              $result = array(
