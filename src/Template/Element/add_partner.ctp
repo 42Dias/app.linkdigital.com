@@ -212,4 +212,4 @@
         </div>
     </div>
 </div>
-<script src="/js/custom/create_pattern.js"></script>
+<script src="/js/custom/create_pf_pj.js"></script>
