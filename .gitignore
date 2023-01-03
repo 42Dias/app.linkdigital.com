@@ -7,7 +7,12 @@
 logs/*
 **logs/*
 
-webroot/uploads/
+webroot/uploads/documents
+webroot/uploads/extracts
+webroot/uploads/files
+webroot/uploads/notes
+webroot/uploads/taxes
+
 webroot/support/
 /tmp/*
 node_modules
