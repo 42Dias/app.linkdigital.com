@@ -16,7 +16,7 @@
 
                     <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">
                         Para importar a sua lista de funcionários, siga o arquivo modelo que preparamos para você, 
-                        clique no link e faça o <a target="_blank" href="../../webroot/uploads/import/Modelo-Importacao-Funcionarios.csv">download do modelo</a>
+                        clique no link e faça o <a target="_blank" href="/uploads/import/Modelo-Importacao-Funcionarios.csv">download do modelo</a>
                     </p>
 
                     <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">
