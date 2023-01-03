@@ -267,6 +267,7 @@ class CustomController extends AppController
              $employees->account_type = $this->request->data['employee_account_type'];
              $employees->site = $this->request->data['employee_site'];
              $employees->created = $date_now;
+             $employees->updated = $date_now;
              $query->save($employees);
  
              $result = array(
