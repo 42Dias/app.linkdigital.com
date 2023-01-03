@@ -18,7 +18,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                             <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Tipo de sócio</p>
-                            <select type="text" class="form-control required" name="partner_type" id="input_partner_type" data-type="partner" style="font-size: 14px; background-color: #fff;">
+                            <select type="text" data-select-type class="form-control required" name="partner_type" id="input_partner_type" data-type="partner" style="font-size: 14px; background-color: #fff;">
                                 <option value="pj">Pessoa jurídica</option>
                                 <option value="pf">Pessoa física</option>
                             </select>

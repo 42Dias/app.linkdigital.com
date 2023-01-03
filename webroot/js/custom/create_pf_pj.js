@@ -1,8 +1,8 @@
-const partnerType = document.getElementById('input_partner_type')
+const selectType = document.querySelector('[data-select-type]')
 const inputsPJ = [...document.querySelectorAll('[data-input-pj]')]
 const inputsPF = [...document.querySelectorAll('[data-input-pf]')]
 
-partnerType.addEventListener('change', (event) => {
+selectType.addEventListener('change', (event) => {
   const typeSelect = event.target.value
   if (typeSelect === 'pj') {
     addRequired(inputsPJ)
