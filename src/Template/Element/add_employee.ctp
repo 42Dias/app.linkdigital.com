@@ -18,9 +18,9 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
                             <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Tipo de funcionário</p>
-                            <select type="text" class="form-control required" name="employee_type" id="input_employee_type" data-type="employee" style="font-size: 14px; background-color: #fff;">
-                                <!-- <option value="pj">Pessoa jurídica</option> -->
-                                <option value="pf">Pessoa física</option>
+                            <select type="text" data-select-type class="form-control required" name="employee_type" id="input_employee_type" data-type="employee" style="font-size: 14px; background-color: #fff;">
+                              <option value="pf">Pessoa física</option>
+                              <option value="pj">Pessoa jurídica</option>
                             </select>
 
                         </div>
@@ -31,21 +31,21 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">CNPJ</p>
-                                <input type="text" class="form-control accountan mask-cnpj" name="employee_pj_document" id="input-search-cnpj" data-type="modal" style="font-size: 14px; background-color: #fff;">
+                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">CNPJ<span class="text-danger">*</span></p>
+                                <input type="text" class="form-control accountant mask-cnpj " name="employee_pj_document" id="input-search-cnpj" data-type="modal" data-input-pj style="font-size: 14px; background-color: #fff;">
 
-                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Nome Fantasia</p>
-                                <input type="text" class="form-control accountant" name="employee_pj_fantasia" style="font-size: 14px; background-color: #fff;">
+                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Nome Fantasia<span class="text-danger">*</span></p>
+                                <input type="text" class="form-control accountant " data-input-pj name="employee_pj_fantasia" style="font-size: 14px; background-color: #fff;">
                             
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Razão social</p>
-                                <input type="text" class="form-control accountant" name="employee_pj_razao" style="font-size: 14px; background-color: #fff;">
+                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Razão social<span class="text-danger">*</span></p>
+                                <input type="text" class="form-control accountant " data-input-pj name="employee_pj_razao" style="font-size: 14px; background-color: #fff;">
                                 
-                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Insc. Mun.</p>
-                                <input type="text" class="form-control accountant" name="employee_pj_insc" style="font-size: 14px; background-color: #fff;">
+                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Insc. Mun.<span class="text-danger">*</span></p>
+                                <input type="text" class="form-control accountant " data-input-pj name="employee_pj_insc" style="font-size: 14px; background-color: #fff;">
                             
                             </div>
                         </div>
@@ -55,13 +55,13 @@
 
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">CPF</p>
-                                <input type="text" class="form-control accountant mask-cpf" name="employee_pf_document"  id="input-cpf" style="font-size: 14px; background-color: #fff;">
+                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">CPF<span class="text-danger">*</span></p>
+                                <input type="text" class="form-control accountant mask-cpf required" data-input-pf name="employee_pf_document"  id="input-cpf" style="font-size: 14px; background-color: #fff;">
                             </div>
 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Nome</p>
-                                <input type="text" class="form-control accountant" name="employee_pf_name" style="font-size: 14px; background-color: #fff;">
+                                <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Nome<span class="text-danger">*</span></p>
+                                <input type="text" class="form-control accountant required" data-input-pf name="employee_pf_name" style="font-size: 14px; background-color: #fff;">
                             </div>
                         </div>
                     </div>
@@ -81,8 +81,8 @@
 
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">E-mail</p>
-                                    <input type="text" class="form-control accountant" name="employee_email" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">E-mail<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_email" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -96,8 +96,8 @@
                                 </div>
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Pessoa de contato</p>
-                                    <input type="text" class="form-control accountant" name="employee_contact" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Pessoa de contato<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_contact" style="font-size: 14px; background-color: #fff;">
                                 </div>
                             </div>
 
@@ -110,18 +110,18 @@
 
                             <div class="row">
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">CEP</p>
-                                    <input type="text" class="form-control accountant mask-cep" name="employee_zipcode" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">CEP<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant mask-cep required" name="employee_zipcode" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Endereço</p>
-                                    <input type="text" class="form-control accountant" name="employee_address" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Endereço<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_address" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Número</p>
-                                    <input type="text" class="form-control accountant" name="employee_number" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Número<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_number" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -130,23 +130,23 @@
                                 </div>
 
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Bairro</p>
-                                    <input type="text" class="form-control accountant" name="employee_district" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Bairro<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_district" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Cidade</p>
-                                    <input type="text" class="form-control accountant" name="employee_city" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Cidade<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_city" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Estado</p>
-                                    <input type="text" class="form-control accountant" name="employee_state" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Estado<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_state" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">País</p>
-                                    <input type="text" class="form-control accountant" name="employee_country" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">País<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_country" style="font-size: 14px; background-color: #fff;">
                                 </div>
                             </div>
 
@@ -159,23 +159,23 @@
 
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Banco</p>
-                                    <input type="text" class="form-control accountant" name="employee_bank" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Banco<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_bank" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Agência</p>
-                                    <input type="text" class="form-control accountant" name="employee_agency" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Agência<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_agency" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Conta</p>
-                                    <input type="text" class="form-control accountant" name="employee_account" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Conta<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_account" style="font-size: 14px; background-color: #fff;">
                                 </div>
 
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Tipo de conta</p>
-                                    <input type="text" class="form-control accountant" name="employee_account_type" style="font-size: 14px; background-color: #fff;">
+                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Tipo de conta<span class="text-danger">*</span></p>
+                                    <input type="text" class="form-control accountant required" name="employee_account_type" style="font-size: 14px; background-color: #fff;">
                                 </div>
                             </div>
 
@@ -190,11 +190,6 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Website</p>
                                     <input type="text" class="form-control accountant" name="employee_site" style="font-size: 14px; background-color: #fff;">
-                                </div>
-
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <p class="text margin-t-20" style=" margin-bottom: 10px; color: #969696; font-weight: 600;">Observações</p>
-                                    <textarea rows="5" class="form-control accountant" name="employee_obs" style="font-size: 14px; background-color: #fff; height: auto !important;"></textarea>
                                 </div>
                             </div>
 
@@ -215,3 +210,4 @@
         </div>
     </div>
 </div>
+<script src="/js/custom/create_pf_pj.js"></script>
