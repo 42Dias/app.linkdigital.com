@@ -348,8 +348,6 @@ $(function () {
 
   // updateStatusTaxes
   approvedConciliationItem = function (conciliation_id, account_id, category_id) {
-    console.log('hahahahahahahahahahahahaha zzzzzzzzzzzzzzzzzzzzzzzzzzzz    ')
-
     $.ajax({
       url: '/api/web/client/conciliations/' + conciliation_id + '/approve/' + account_id + '/' + category_id,
       data: '',
@@ -361,10 +359,10 @@ $(function () {
       complete: function () {},
       success: function (data) {
         if (data.result.status == 'ok') {
-          // setTimeout(function(){
-          //     $(".box-loading").hide();
-          //     window.location.replace('/client/finances?tab_select=17');
-          // }, 1000);
+          setTimeout(function () {
+            $('.box-loading').hide()
+            window.location.replace('/client/finances/conciliations')
+          }, 1000)
         } else {
           setTimeout(function () {
             $('.box-loading').hide()
