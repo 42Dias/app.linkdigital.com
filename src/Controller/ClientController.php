@@ -22,6 +22,8 @@ use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\TableRegistry;
 use Cake\I18n\Date;
 use Cake\I18n\Time;
+use Cake\Log\Log;
+use Cake\Log\Engine;
 
 
 class ClientController extends AppController
@@ -1703,6 +1705,8 @@ class ClientController extends AppController
         $this->set('menu_active', 'finances');
         $this->set('finances_select', 'payments');
 
+        $payments_selected_id = 0;
+
         // Buscar registros
         $query = TableRegistry::get('AccessBusiness');
         $query_access = $query
@@ -1733,6 +1737,8 @@ class ClientController extends AppController
             ->find()
             ->where([ 'business_id =' => $business_active ])
             ->order([ 'id ASC' ]);
+
+        Log::debug($business_active);
 
             // Buscar registros
         $query = TableRegistry::get('FinancesAccounts');
@@ -1777,6 +1783,15 @@ class ClientController extends AppController
             ->where([ 'business_id =' => $business_active ])
             ->order([ 'id ASC' ]);
 
+        $query = TableRegistry::get('FinancesNotes');
+        $query_notes = $query
+            ->find()
+            ->where([ 
+                'business_id =' => $business_active,
+                'item_id =' => $payments_selected_id  
+            ])
+            ->order([ 'id ASC' ]);
+
         $this->set('query_customers', $query_customers);
         $this->set('query_providers', $query_providers);
         $this->set('query_employees', $query_employees);
@@ -1784,6 +1799,8 @@ class ClientController extends AppController
         $this->set('query_accounts', $query_accounts);
         $this->set('query_categories', $query_categories);
         $this->set('query_payments', $query_payments);
+        $this->set('payments_selected_id', $payments_selected_id);
+        $this->set('query_notes', $query_notes);
 
     }
 
