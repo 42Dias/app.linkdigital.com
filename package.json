@@ -3,7 +3,8 @@
     "description": "Backend",
     "scripts": {
       "start": "bin/cake server -p 3000 -H 0.0.0.0",
-      "dev": "bin/cake server -p 3000",
+      "debug:log": "tail -f logs/debug.log",
+      "dev": "bin/cake server -p 80 -H 0.0.0.0",
       "server": "docker-compose --env-file .env up -d",
       "dev:dockerup": "docker-compose --env-file .env.development up -d",
       "dev:dockerdown": "docker-compose --env-file .env.development down",
