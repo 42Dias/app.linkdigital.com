@@ -1,8 +1,9 @@
 
 <?php
-
     echo $this->element('add_payment');
     echo $this->element('update_payment');
+    echo $this->element('add_note');
+
     $test = '';
     $month_format_date['01'] = "Janeiro";
     $month_format_date['02'] = "Fevereiro";
