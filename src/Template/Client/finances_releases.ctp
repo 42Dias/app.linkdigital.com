@@ -16,6 +16,8 @@
     $month_format_date['10'] = "Outubro";
     $month_format_date['11'] = "Novembro";
     $month_format_date['12'] = "Dezembro";
+
+
 ?>
 
 <!-- Menu Page -->
@@ -61,7 +63,9 @@
                 <?php
 
                     if($date_begin_input == ""){
-                        $date = '01'.date_format($date_now, '/m/Y');
+                        $date = $date_now;
+                        date_sub($date, date_interval_create_from_date_string('1 year'));
+                        $date = date_format($date, 'd/m/Y');
                         $date_begin = substr($date,8 ,2)."/".substr($date,5 ,2)."/".substr($date,0 ,4);
                     }else{
                         $date = $date_begin_input;
@@ -101,137 +105,11 @@
             <div class="box-white size-lg" style="min-height: 280px;">
                 <span class="title-box">Despesas x Receitas</span>
 
-                <?php
-                    $values_lucratividade = '';
-                    $values_balance = '';
-                    $values_despesas = '';
-                    $values_receitas = '';
-
-                    for ($i=1; $i < 13; $i++) { 
-                        $values_lucratividade .= str_replace(',', '.', $month_lucratividade[$i]).','; 
-                    } 
-
-                    for ($i=1; $i < 13; $i++) { 
-                        $values_despesas .= str_replace(',', '.', ($month_despesas[$i])).','; 
-                    } 
-
-                    for ($i=1; $i < 13; $i++) { 
-                        $values_receitas .= str_replace(',', '.', $month_receitas[$i]).','; 
-                    } 
-
-                    for ($i=1; $i < 13; $i++) { 
-                        $values_balance .= str_replace(',', '.', $month_receitas[$i] + $month_despesas[$i]).','; 
-                    } 
-                    
-                ?>
+               
 
                 <canvas id="myChart1" height="50"></canvas>
 
-                <script>
-                    var chart    = document.getElementById('myChart1').getContext('2d'),
-                    
-                    gradient_green = chart.createLinearGradient(0, 0, 0, 450);
-                    gradient_green.addColorStop(0, 'rgba(46, 210, 66, 1)');
-                    gradient_green.addColorStop(0.5, 'rgba(180, 255, 60, 0.2)');
-                    gradient_green.addColorStop(1, 'rgba(180, 255, 60, 0)');
-
-                    gradient_red = chart.createLinearGradient(0, 0, 0, 450);
-                    gradient_red.addColorStop(0, 'rgba(255, 206, 44, 1)');
-                    gradient_red.addColorStop(0.5, 'rgba(255, 206, 44, 0.2)');
-                    gradient_red.addColorStop(1, 'rgba(255, 206, 44, 0)');
-
-                    gradient_purple = chart.createLinearGradient(0, 0, 0, 450);
-                    gradient_purple.addColorStop(0, 'rgba(255, 206, 44, 1)');
-                    gradient_purple.addColorStop(0.5, 'rgba(255, 206, 44, 0.2)');
-                    gradient_purple.addColorStop(1, 'rgba(255, 206, 44, 0)');
-
-                    var data  = {
-                        labels: [ 'JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'],
-                        datasets: [
-                            {
-                                label: 'Despesas',
-                                backgroundColor: gradient_red,
-                                pointBackgroundColor: '#333',
-                                borderWidth: 1,
-                                borderColor: 'transparent',
-                                data: [<?php echo $values_despesas; ?>],
-                                pointStyle: 'cross',
-                                borderSkipped: false,
-                            },
-                            {
-                                label: 'Receitas',
-                                backgroundColor: gradient_green,
-                                pointBackgroundColor: ' #41d242',
-                                borderWidth: 1,
-                                borderColor: 'transparent',
-                                data: [<?php echo $values_receitas; ?>],
-                                pointStyle: 'cross',
-                                borderSkipped: false,
-                            },
-                            {
-                                label: 'Lucratividade',
-                                data: [<?php echo $values_balance; ?>],
-                                borderColor: "#4db8ff",
-                                backgroundColor: "#82CDFF",
-                                type: 'line',
-                                fill: false,
-                                tension: 0.1
-                            }
-
-                        ]
-                    };
-
-                    var options = {
-                        responsive: true,
-                        maintainAspectRatio: true,
-                        animation: {
-                            easing: 'easeInOutQuad',
-                            duration: 520
-                        },
-                        scales: {
-                            xAxes: [{
-                                gridLines: {
-                                    color: 'rgba(200, 200, 200, 0.05)',
-                                    lineWidth: 1
-                                },
-                                stacked: true,
-                            }],
-                            yAxes: [{
-                                gridLines: {
-                                    color: 'rgba(200, 200, 200, 0.08)',
-                                    lineWidth: 1,
-                                },
-                                stacked: true
-                            }]
-                        },
-                        elements: {
-                            line: {
-                                tension: 0.4
-                            }
-                        },
-                        legend: {
-                        },
-                        point: {
-                            backgroundColor: 'white'
-                        },
-                        tooltips: {
-                            titleFontFamily: 'Open Sans',
-                            backgroundColor: 'rgba(0,0,0,0.7)',
-                            titleFontColor: 'white',
-                            caretSize: 5,
-                            cornerRadius: 2,
-                            xPadding: 10,
-                            yPadding: 10
-                        }
-                    };
-
-                    var chartInstance = new Chart(chart, {
-                        type: 'bar',
-                        data: data,
-                            options: options
-                    });
-                    
-                </script>
+               
 
             </div>
         </div>
@@ -400,8 +278,14 @@
 
         </div>
     </div>
-</div>
+  </div>
 
-<?php
-    // echo $this->element('footer_panel');
-?>
+
+<script>
+  let queryData = <?php echo json_encode($query_releases); ?>;
+  const inputBeginDate = "<?php echo ($date_begin_input); ?>";
+  const inputEndDate = "<?php echo ($date_end_input); ?>";
+
+</script>
+<script src="/js/custom/graphic_finances_releases.js"></script>
+

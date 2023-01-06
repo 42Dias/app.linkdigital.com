@@ -22,6 +22,7 @@ use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\TableRegistry;
 use Cake\I18n\Date;
 use Cake\I18n\Time;
+use Cake\Log\Log;
 
 
 class ClientController extends AppController
@@ -1904,10 +1905,12 @@ class ClientController extends AppController
             $date_begin_input = $this->request->data['date_begin'];
             $date_end_input = $this->request->data['date_end'];
         }else{
-            $date_begin = date('Y-m-', strtotime($date_now)).'01'.date(' H:i:s', strtotime($date_now));
+            $date = Date::now();
+            date_sub($date, date_interval_create_from_date_string('1 year'));
+            $date_begin = $date;
             $date_end = date('Y-m-d H:i:s', strtotime($date_now));
-            $date_begin_input = '';
-            $date_end_input = '';
+            $date_begin_input = date('d/m/Y', strtotime($date_begin));
+            $date_end_input = date('d/m/Y', strtotime($date_now));
         }
 
         $total_receipt = 0;
@@ -1978,7 +1981,7 @@ class ClientController extends AppController
                     'created >=' => $date_begin,
                     'created <=' => $date_end
                 ])
-                ->order([ 'id DESC' ]);
+                ->order([ 'created ASC' ]);
 
         }else{
             
@@ -2001,7 +2004,6 @@ class ClientController extends AppController
                     'created <=' => $date_end
             ], true)
         );
-
         foreach ($query_releases as $release) {
 
             $month_active = date_format($release->created, "m");
@@ -3906,9 +3908,9 @@ class ClientController extends AppController
             $activities = TableRegistry::get('Activities');
             $query_activities = $activities->newEntity();
             $query_activities->user_id = $this->Auth->user('id');
-            $query_activities->business_id = $business_active;
+            // $query_activities->business_id = $business_active;
             $query_activities->title = 'Removeu uma categoria';
-            $query_activities->link = '/accountant/business/'.$business_active.'/view?tab_select=5';
+            // $query_activities->link = '/accountant/business/'.$business_active.'/view?tab_select=5';
             $query_activities->type = 'Deletou uma categoria';
             $query_activities->created = $date_now;
             $activities->save($query_activities);
