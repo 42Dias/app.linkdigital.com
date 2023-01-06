@@ -154,10 +154,12 @@ class ClientController extends AppController
             $date_begin_input = $this->request->data['date_begin'];
             $date_end_input = $this->request->data['date_end'];
         }else{
-            $date_begin = date('Y-m-', strtotime($date_now)).'01'.date(' H:i:s', strtotime($date_now));
+           $date = Date::now();
+            date_sub($date, date_interval_create_from_date_string('1 year'));
+            $date_begin = $date;
             $date_end = date('Y-m-d H:i:s', strtotime($date_now));
-            $date_begin_input = '';
-            $date_end_input = '';
+            $date_begin_input = date('d/m/Y', strtotime($date_begin));
+            $date_end_input = date('d/m/Y', strtotime($date_now));
         }
 
         $total_receipt = 0;
@@ -233,16 +235,7 @@ class ClientController extends AppController
             $categories_values[$category->group_categories] = 0;
         }
 
-        // RELEASES
-        $month_lucratividade = [];
-        $month_despesas = [];
-        $month_receitas = [];
-
-        for ($i=1; $i < 13; $i++) { 
-            $month_lucratividade[$i] = 0;                
-            $month_despesas[$i] = 0;
-            $month_receitas[$i] = 0;
-        }
+       
 
         // Buscar registros
         $query = TableRegistry::get('FinancesReleases');
@@ -253,7 +246,7 @@ class ClientController extends AppController
                 'created >=' => $date_begin,
                 'created <=' => $date_end
             ])
-            ->order([ 'id DESC' ]);
+            ->order([ 'created ASC' ]);
 
         foreach ($query_releases as $release) {
 
@@ -263,25 +256,7 @@ class ClientController extends AppController
 
             if($release->type == 'payment'){
                 $total_payment += $release->value;
-            }
-
-            $month_active = date_format($release->created, "m");
-
-            for ($i=1; $i < 13; $i++) { 
-                
-                if($month_active == $i){
-
-                    if($release->type == 'receipt'){
-                        $month_receitas[$i] += $release->value;
-                    }
-        
-                    if($release->type == 'payment'){
-                        $month_despesas[$i] += $release->value;
-                    }
-
-                    $month_lucratividade[$i] = $month_receitas[$i] - ($month_despesas[$i] * -1);
-                }
-            }
+            }          
             
             // FINANCES
             // Buscar registros
@@ -408,11 +383,9 @@ class ClientController extends AppController
         $this->set('date_begin_input', $date_begin_input);
         $this->set('date_end_input', $date_end_input);
 
-        $this->set('month_lucratividade', $month_lucratividade);
-        $this->set('month_despesas', $month_despesas);
-        $this->set('month_receitas', $month_receitas);
 
         $this->set('categories_values', $categories_values);
+        $this->set('query_releases', $query_releases);
         
     }
 

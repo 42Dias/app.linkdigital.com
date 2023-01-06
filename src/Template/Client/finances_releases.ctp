@@ -282,7 +282,7 @@
 
 
 <script>
-  let queryData = <?php echo json_encode($query_releases); ?>;
+  const queryData = <?php echo json_encode($query_releases); ?>;
   const inputBeginDate = "<?php echo ($date_begin_input); ?>";
   const inputEndDate = "<?php echo ($date_end_input); ?>";
 
