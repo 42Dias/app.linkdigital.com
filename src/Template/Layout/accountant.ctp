@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="/tools/datepicker/datepicker.min.css">
     <link rel="stylesheet" href="/tools/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/tools/scrollbar/scrollbar.min.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" ></script>
 
     <?php echo $this->Html->css($css); ?>
 

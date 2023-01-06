@@ -27,6 +27,7 @@
     <?php echo $this->Html->css($css); ?>
 
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="/tools/jquery/jquery-3.1.1.slim.min.js"></script>
     <script src="/tools/jquery/jquery-3.2.1.min.js"></script>
     <script src="/tools/tether/tether.min.js"></script>
