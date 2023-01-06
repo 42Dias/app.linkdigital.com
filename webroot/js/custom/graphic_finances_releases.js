@@ -70,6 +70,12 @@ if (diffDays > 31) {
   }
 }
 
+const currencyBRL = (money) => {
+  let valor = Number(money).toFixed(2) + ''
+  valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  return `R$ ${valor}`
+}
+
 let dataReceita = [...dataFinances.map((finance) => finance.receipt)]
 let dataDespesas = [...dataFinances.map((finance) => finance.payment)]
 let dataLucratividade = [...dataFinances.map((finance) => finance.payment - finance.receipt * -1)]
@@ -133,6 +139,11 @@ var options = {
           lineWidth: 1,
         },
         stacked: true,
+        ticks: {
+          callback: (value) => {
+            return currencyBRL(value)
+          },
+        },
       },
     ],
   },
@@ -141,7 +152,7 @@ var options = {
       tension: 0.4,
     },
   },
-  legend: {},
+
   point: {
     backgroundColor: 'white',
   },
@@ -153,6 +164,11 @@ var options = {
     cornerRadius: 2,
     xPadding: 10,
     yPadding: 10,
+    callbacks: {
+      label: (tooltipItem) => {
+        return currencyBRL(tooltipItem.value)
+      },
+    },
   },
 }
 
