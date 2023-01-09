@@ -414,173 +414,21 @@
 
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 margin-mobile-b-30" style="padding-left: 0px;">
 
-            <div class="box-white size-lg">
+            <div class="box-white size-lg" style="height: 100%;">
                 <span class="title-box">Receitas</span>
 
+                <h3 class="text-center" id="receiptNull" style="display: none;">Nenhuma receita encontrada nesse período!</h3>
                 <canvas id="myChart3" height="150"></canvas>
-
-                <script>
-                    var ctx = document.getElementById('myChart3').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                            labels: [
-                                'Receitas de Vendas e de Serviços',
-                                'Receitas Financeiras',
-                                'Outras Receitas e Entradas',
-                            ],
-                            datasets: [
-                                {
-                                    label: 'Receitas',
-                                    data: [
-                                        <?php 
-                                            echo str_replace(',','.', $categories_values['receitas_de_vendas_e_de_servicos']);
-                                            echo ',';
-                                            echo str_replace(',','.', $categories_values['receitas_financeiras']);
-                                            echo ',';
-                                            echo str_replace(',','.', $categories_values['outras_receitas_e_entradas']);
-                                        ?>
-                                    ],                             
-                                    backgroundColor: [
-                                        '#DFFF00',
-                                        '#FFBF00',
-                                        '#FF7F50',
-                                        '#DE3163',
-                                        '#9FE2BF',
-                                        '#40E0D0',
-                                        '#6495ED',
-                                        '#CCCCFF',
-                                        '#DFFF00',
-                                        '#FFBF00',
-                                        '#FF7F50',
-                                        '#DE3163',
-                                        '#9FE2BF',
-                                        '#40E0D0',
-                                        '#6495ED',
-                                        '#CCCCFF'
-                                    ]
-                                }
-                            ]
-                        },
-                        options: {
-                            scales: {
-                                display: ''
-                            },
-                            legend: {
-                                position: 'bottom',
-                                align: 'left',
-                                labels: {
-                                    boxWidth: 10
-                                }
-                            },
-                            
-                        }
-                    });
-                </script>
-                
             </div>
         </div>
 
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 margin-mobile-b-30" style="padding-left: 0px;">
 
-            <div class="box-white size-lg">
+            <div class="box-white size-lg" style="height: 100%;">
                 <span class="title-box">Despesas</span>
 
+                <h3 class="text-center" id="paymentNull" style="display: none;">Nenhuma despesa encontrada nesse período!</h3>
                 <canvas id="myChart4" height="150"></canvas>
-
-                <script>
-                    var ctx = document.getElementById('myChart4').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                            labels: [
-                                'Impostos sobre Vendas e sobre Serviços',
-                                'Despesas com Vendas e Serviços',
-                                'Despesas com Salários e Encargos',
-                                'Despesas com Colaboradores',
-                                'Despesas Administrativas',
-                                'Despesas Comerciais',
-                                'Despesas com Imóvel',
-                                'Despesas com Veículos',
-                                'Despesas com Diretoria',
-                                'Despesas Financeiras',
-                                'Outras Despesas',
-                                'Outras Imobilizações por Aquisição',
-                                'Empréstimos e Financiamentos',
-                                'Parcelamentos e Dívidas'
-                            ],
-                            datasets: [
-                                {
-                                    label: 'Despesas',
-                                    data: [
-                                        <?php 
-                                            echo str_replace(',','.', ($categories_values['impostos_sobre_vendas_e_sobre_servicos'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_com_vendas_e_servicos'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_com_salarios_e_encargos'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_com_colaboradores'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_administrativas'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_comerciais'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_com_imovel'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_com_veiculos'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_com_diretoria'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['despesas_financeiras'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['outras_despesas'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['outras_imobilizacoes_por_aquisicao'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['emprestimos_e_financiamentos'] * (-1)));
-                                            echo ',';
-                                            echo str_replace(',','.', ($categories_values['parcelamentos_e_dividas'] * (-1)));
-                                        ?>
-                                    ],                                
-                                    backgroundColor: [
-                                        '#DFFF00',
-                                        '#FFBF00',
-                                        '#FF7F50',
-                                        '#DE3163',
-                                        '#9FE2BF',
-                                        '#40E0D0',
-                                        '#6495ED',
-                                        '#CCCCFF',
-                                        '#DFFF00',
-                                        '#FFBF00',
-                                        '#FF7F50',
-                                        '#DE3163',
-                                        '#9FE2BF',
-                                        '#40E0D0',
-                                        '#6495ED',
-                                        '#CCCCFF'
-                                    ]
-                                }
-                            ]
-                        },
-                        options: {
-                            scales: {
-                                display: ''
-                            },
-                            legend: {
-                                
-                                display: true,
-                                position: 'bottom',
-                                align: 'left',
-                                labels: {
-                                    boxWidth: 10
-                                }
-                            }                            
-                        }
-                    });
-                </script>
-                
             </div>
         </div>
 
@@ -609,6 +457,23 @@
   const queryData = <?php echo json_encode($query_releases); ?>;
   const inputBeginDate = "<?php echo ($date_begin_input); ?>";
   const inputEndDate = "<?php echo ($date_end_input); ?>";
+  const valuesCategory = <?php echo json_encode($categories_values); ?>;
 
+  const receipt_labels = <?php echo json_encode($receipt_labels); ?>;
+  const receipt_values = <?php echo json_encode($receipt_values); ?>;
+  const payment_labels = <?php echo json_encode($payment_labels); ?>;
+  const payment_values = <?php echo json_encode($payment_values); ?>;
+
+  if(!payment_labels.length) paymentNull.setAttribute('style','display:flex')
+  if(!receipt_labels.length) receiptNull.setAttribute('style','display:flex')
+
+
+  const currencyBRL = (money) => {
+    let valor = Number(money).toFixed(2) + ''
+    valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    return `R$ ${valor}`
+  }
 </script>
 <script src="/js/custom/graphic_desempenho_home.js"></script>
+<script src="/js/custom/graphic_receitas_home.js"></script>
+<script src="/js/custom/graphic_despesas_home.js"></script>

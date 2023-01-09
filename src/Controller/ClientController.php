@@ -230,12 +230,8 @@ class ClientController extends AppController
             ->order([ 'id ASC' ]);
 
         $categories_values = [];
-        
-        foreach ($query_categories as $category) {
-            $categories_values[$category->group_categories] = 0;
-        }
-
-       
+        $receipt_values_arr = [];
+        $payment_values_arr = [];
 
         // Buscar registros
         $query = TableRegistry::get('FinancesReleases');
@@ -249,15 +245,6 @@ class ClientController extends AppController
             ->order([ 'created ASC' ]);
 
         foreach ($query_releases as $release) {
-
-            if($release->type == 'receipt'){
-                $total_receipt += $release->value;
-            }
-
-            if($release->type == 'payment'){
-                $total_payment += $release->value;
-            }          
-            
             // FINANCES
             // Buscar registros
             $query = TableRegistry::get('BusinessCategories');
@@ -266,10 +253,57 @@ class ClientController extends AppController
                 ->where([ 'id =' => $release->category_id ]);
             
             foreach ($query_categories as $category) {
-                $categories_values[$category->group_categories] += $release->value;
+              if($release->type == 'receipt'){
+                $total_receipt += $release->value;
+                array_push($receipt_values_arr, [
+                  'value' => $release->value,
+                  'name' => $category->name,
+                  'type' => $release->type
+                ]);
+              }
+              if($release->type == 'payment'){
+                $total_payment += $release->value;
+                array_push($payment_values_arr, [
+                    'value' => $release->value,
+                    'name' => $category->name,
+                    'type' => $release->type
+                  ]);
+              }
+               
             }
             
         }
+
+        $receipt_labels = [];
+        $receipt_values = [];
+        foreach ($receipt_values_arr as $receipt) {
+          $name = $receipt['name'];
+          $value = $receipt['value'];
+
+          if(in_array($name, $receipt_labels)){
+            $key = array_search($name, $receipt_labels);
+            $receipt_values[$key] += $value;
+          } else {
+            $receipt_labels[] = $name;
+            $receipt_values[] = $value;
+          }
+        };
+
+        $payment_labels = [];
+        $payment_values = [];
+        foreach ($payment_values_arr as $payment) {
+          $name = $payment['name'];
+          $value = $payment['value'];
+
+          if(in_array($name, $payment_labels)){
+            $key = array_search($name, $receipt_labels);
+            $payment_values[$key] += $value;
+          } else {
+            $payment_labels[] = $name;
+            $payment_values[] = $value;
+          }
+        };
+
 
         // Buscar registros
         $query = TableRegistry::get('Business');
@@ -386,7 +420,12 @@ class ClientController extends AppController
 
         $this->set('categories_values', $categories_values);
         $this->set('query_releases', $query_releases);
-        
+
+        $this->set('receipt_labels', $receipt_labels);
+        $this->set('receipt_values', $receipt_values);
+        $this->set('payment_labels', $payment_labels);
+        $this->set('payment_values', $payment_values);
+
     }
 
     public function business()

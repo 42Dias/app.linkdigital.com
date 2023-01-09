@@ -15,12 +15,6 @@ gradient_purple.addColorStop(0.5, 'rgba(255, 206, 44, 0.2)')
 gradient_purple.addColorStop(1, 'rgba(255, 206, 44, 0)')
 moment.locale('pt-BR')
 
-const currencyBRL = (money) => {
-  let valor = Number(money).toFixed(2) + ''
-  valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-  return `R$ ${valor}`
-}
-
 let countDiffDays = 0
 let countDiffMonth = 0
 let labels = []
